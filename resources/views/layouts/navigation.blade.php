@@ -26,7 +26,7 @@
             <button
               class="inline-flex items-center rounded-md border border-transparent bg-white px-3 py-2 text-sm font-medium leading-4 text-gray-500 transition duration-150 ease-in-out hover:text-gray-700 focus:outline-none">
               @auth
-                <div>Votre profil</div>
+                <div>{{ Auth::user()->name }}</div>
               @else
                 <div>Connexion</div>
               @endauth
@@ -45,7 +45,7 @@
           <x-slot name="content">
             @auth
               <x-dropdown-link :href="route('profile.edit')">
-                {{ __('Profile') }}
+                Profil
               </x-dropdown-link>
 
               <!-- Authentication -->
@@ -55,7 +55,7 @@
                 <x-dropdown-link :href="route('logout')"
                   onclick="event.preventDefault();
                                                       this.closest('form').submit();">
-                  {{ __('Log Out') }}
+                  Déconnexion
                 </x-dropdown-link>
               </form>
             @else
@@ -63,7 +63,7 @@
                 Connexion
               </x-dropdown-link>
               <x-dropdown-link :href="route('register')">
-                S'enregistrer
+                Inscription
               </x-dropdown-link>
             @endauth
           </x-slot>
@@ -98,29 +98,38 @@
 
     <!-- Responsive Settings Options -->
     <div class="border-t border-gray-200 pb-1 pt-4">
-      <div class="px-4">
-        <div class="text-base font-medium text-gray-800">
-          Votre profil</div>
-        <div class="text-sm font-medium text-gray-500">
-          Votre e-mail
+      @auth
+        <div class="px-4">
+          <div class="text-base font-medium text-gray-800">
+            {{ Auth::user()->name }}
+          </div>
         </div>
-      </div>
+      @endauth
 
       <div class="mt-3 space-y-1">
-        <x-responsive-nav-link :href="route('profile.edit')">
-          {{ __('Profile') }}
-        </x-responsive-nav-link>
-
-        <!-- Authentication -->
-        <form method="POST" action="{{ route('logout') }}">
-          @csrf
-
-          <x-responsive-nav-link :href="route('logout')"
-            onclick="event.preventDefault();
-                                        this.closest('form').submit();">
-            {{ __('Log Out') }}
+        @auth
+          <x-responsive-nav-link :href="route('profile.edit')">
+            Profil
           </x-responsive-nav-link>
-        </form>
+
+          <!-- Authentication -->
+          <form method="POST" action="{{ route('logout') }}">
+            @csrf
+
+            <x-responsive-nav-link :href="route('logout')"
+              onclick="event.preventDefault();
+                                        this.closest('form').submit();">
+              Déconnexion
+            </x-responsive-nav-link>
+          </form>
+        @else
+          <x-responsive-nav-link :href="route('login')">
+            Connexion
+          </x-responsive-nav-link>
+          <x-responsive-nav-link :href="route('register')">
+            Inscription
+          </x-responsive-nav-link>
+        @endauth
       </div>
     </div>
   </div>
