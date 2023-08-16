@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\CommentController;
+use App\Http\Controllers\ObservationController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -13,6 +15,18 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+// Routes ressources
+
+Route::resource('observations', ObservationController::class)
+    ->middleware(['auth', 'verified']);
+
+Route::resource('comments', CommentController::class)
+    ->middleware(['auth', 'verified']);
+
+
+
+// ==================== //
 
 Route::get('/', function () {
     return view('index');
