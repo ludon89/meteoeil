@@ -48,6 +48,15 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
+    /**
+     * The model's default values for attributes.
+     *
+     * @var array
+     */
+    protected $attributes = [
+        'is_admin' => false,
+    ];
+
     public function observations(): HasMany
     {
         return $this->HasMany(Observation::class);
