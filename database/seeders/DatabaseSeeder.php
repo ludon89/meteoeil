@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\User;
+use App\Models\Observation;
+use App\Models\Comment;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -16,5 +18,9 @@ class DatabaseSeeder extends Seeder
         User::factory()
             ->count(5)
             ->create();
+
+        $this->call([
+            ObservationSeeder::class,
+        ]);
     }
 }

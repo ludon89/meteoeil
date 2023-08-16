@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +18,25 @@ class ObservationFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'title' => fake()->sentence(),
+            'picture' => '',
+            'location' => fake()->city(),
+            'datetime' => fake()->dateTime(),
+            'departement' => fake()->departmentNumber(),
+            'weather' => fake()->randomElement([
+                'Ensoleillé',
+                'Nuageux',
+                'Couvert',
+                'Pluie faible',
+                'Pluie forte',
+                'Neige',
+                'Pluie et neige mêlées',
+                'Orage',
+                'Brouillard'
+            ]),
+            'temperature' => fake()->numberBetween(-40, 50),
+            'description' => fake()->paragraph(),
+            'user_id' => User::all()->random()->id
         ];
     }
 }
