@@ -22,6 +22,10 @@ return new class extends Migration
             $table->string('weather')->nullable();
             $table->tinyInteger('temperature')->nullable();
             $table->string('description')->nullable();
+            $table->foreignId('user_id')
+                ->constrained()
+                ->onUpdate('cascade')
+                ->onDelete('cascade');;
         });
     }
 
