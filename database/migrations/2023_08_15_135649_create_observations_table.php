@@ -14,6 +14,14 @@ return new class extends Migration
         Schema::create('observations', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->string('title');
+            $table->string('picture');
+            $table->string('location');
+            $table->dateTime('datetime');
+            $table->string('departement')->nullable();
+            $table->string('weather')->nullable();
+            $table->tinyInteger('temperature')->nullable();
+            $table->string('description')->nullable();
         });
     }
 
