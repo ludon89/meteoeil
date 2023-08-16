@@ -32,6 +32,10 @@ Route::resource('comments', CommentController::class)
 Route::get('/', [ObservationController::class, 'index'])
     ->name('index');
 
+// Affichage page d'observation
+Route::get('/observations/{observation}', [ObservationController::class, 'show'])
+    ->name('observations.show');
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');

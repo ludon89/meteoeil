@@ -42,7 +42,9 @@ class ObservationController extends Controller
      */
     public function show(Observation $observation)
     {
-        //
+        $observation = Observation::with(['comments.user', 'user'])->find($observation->id);
+
+        return view('observations.show', compact('observation'));
     }
 
     /**

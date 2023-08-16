@@ -8,11 +8,11 @@
   <div class="mx-auto max-w-7xl p-4 sm:p-6 lg:p-8">
     @foreach ($observations as $observation)
       <div class="pb-6">
-        <h2 class="font-bold">
+        <h1 class="font-bold">
           <a href="{{ route('observations.show', $observation) }}">
             {{ $observation->location }}
           </a>
-        </h2>
+        </h1>
         <div class="max-w-xl">
           <img
             src="{{ $observation->picture ? asset('storage/' . $observation->picture) : asset('images/placeholders/1200X800.png') }}"
