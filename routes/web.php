@@ -28,9 +28,9 @@ Route::resource('comments', CommentController::class)
 
 // ==================== //
 
-Route::get('/', function () {
-    return view('index');
-})->name('index');
+// Affichage page d'accueil
+Route::get('/', [ObservationController::class, 'index'])
+    ->name('index');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

@@ -12,7 +12,13 @@ class ObservationController extends Controller
      */
     public function index()
     {
-        //
+        $observations = Observation::latest()->get();
+
+        // dd($observations);
+
+        return view('observations.index', [
+            'observations' => $observations,
+        ]);
     }
 
     /**
