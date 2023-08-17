@@ -32,7 +32,25 @@ class ObservationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $userInput = $request->validate([
+            'title' => 'bail|required|string|max:255',
+            'picture' => 'bail|mimes:jpg,png|max:2048',
+            'location' => 'bail|required|string|max:255',
+            'date' => 'bail|required|date',
+            'time' => 'bail|required|date_format:H:i',
+            'departement' => 'bail|required|integer',
+            'weather' => 'bail|string|max:255',
+            'temperature' => 'bail|integer',
+            'description' => 'bail|string|max:1024',
+        ]);
+
+        $userInput['picture'] = $request->picture->store('user-obs', 'public');
+
+        $userInput['user_id'] = auth()->id();
+
+        Observation::create($userInput);
+
+        return redirect(route('index'));
     }
 
     /**

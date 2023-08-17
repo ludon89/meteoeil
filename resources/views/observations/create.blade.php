@@ -5,9 +5,11 @@
       Nouvelle observation
     </h1>
     <div class="mx-auto max-w-5xl p-4 sm:p-6 lg:p-8">
-      <form method="POST" enctype="multipart/form-data" action=""
-        class="pb-4">
+      <form method="POST" enctype="multipart/form-data"
+        action="{{ route('observations.store') }}" class="pb-4">
         @csrf
+        @method('POST')
+
         <label for="title">Titre :</label><br>
         <input type="text" name="title" id="title"
           class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
@@ -17,7 +19,8 @@
         <label for="departement">Département :</label><br>
         <input type="text" name="departement" id="departement"
           class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
-        <div class="flex flex-row">
+
+        <div class="flex flex-row"> <!-- Date & heure -->
           <div class="pr-2">
             <label for="date">Date :</label><br>
             <input type="date" name="date" id="date"
@@ -30,7 +33,7 @@
           </div>
         </div>
 
-        <div class="flex flex-row">
+        <div class="flex flex-row"> <!-- Temps & température -->
           <div class="pr-2">
             <label for="weather">Temps :</label><br>
             <select name="weather" id="weather">
@@ -58,11 +61,11 @@
         <label for="content">Description :</label><br>
         <textarea name="content" id="content" rows=6
           class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"></textarea>
-        <label for="picture">Image :</label><br />
+        <label for="picture">Image :</label><br>
         <input type="file" name="picture" id="picture">
 
         <x-input-error :messages="$errors->all()" class="mt-2" /><br />
-        <x-primary-button class="mt-4">{{ __('Publier') }}
+        <x-primary-button class="mt-4">Publier
         </x-primary-button>
       </form>
       <a href="{{ url()->previous() }}">Retour</a>
