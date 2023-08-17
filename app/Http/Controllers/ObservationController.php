@@ -48,15 +48,15 @@ class ObservationController extends Controller
     public function store(Request $request)
     {
         $userInput = $request->validate([
-            'title' => 'bail|required|string|max:255',
+            'title' => 'bail|required|string|max:128',
             'picture' => 'bail|required|mimes:jpg,png|max:2048',
-            'location' => 'bail|required|string|max:255',
+            'location' => 'bail|required|string|max:128',
             'date' => 'bail|required|date',
             'time' => 'bail|required|date_format:H:i',
             'departement' => 'bail|required|string|max:3',
-            'weather' => 'bail|string|max:128',
+            'weather' => 'bail|string|max:64',
             'temperature' => 'bail|integer|between:-40,50',
-            'description' => 'bail|string|max:1024',
+            'description' => 'bail|string|max:512',
         ]);
 
         $userInput['picture'] = $request->picture->store('user-obs', 'public');
@@ -98,12 +98,12 @@ class ObservationController extends Controller
         $this->authorize('update', $observation);
 
         $validation = [
-            'title' => 'bail|required|string|max:255',
-            'location' => 'bail|required|string|max:255',
+            'title' => 'bail|required|string|max:128',
+            'location' => 'bail|required|string|max:128',
             'departement' => 'bail|required|string|max:3',
-            'weather' => 'bail|string|max:128',
+            'weather' => 'bail|string|max:64',
             'temperature' => 'bail|integer|between:-40,50',
-            'description' => 'bail|string|max:1024',
+            'description' => 'bail|string|max:512',
         ];
 
         $this->validate($request, $validation);

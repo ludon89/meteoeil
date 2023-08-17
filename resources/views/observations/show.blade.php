@@ -67,7 +67,7 @@
             <p>{{ $comment->content }}</p>
             <p class="text-sm">Par {{ $comment->user->name }} le
               {{ $comment->created_at }}</p>
-            {{-- @if ($comment->user->is(auth()->user()))
+            @if ($comment->user->is(auth()->user()))
               <!-- modif & suppr commentaires -->
               <a href="{{ route('comments.edit', $comment) }}">
                 <x-primary-button>Modifier</x-primary-button>
@@ -81,7 +81,7 @@
                   <x-danger-button>Supprimer</x-danger-button>
                 </a>
               </form>
-            @endif --}}
+            @endif
           </div>
         @endforeach
       </div>
@@ -89,13 +89,13 @@
     <hr>
     @if (Auth::check())
       <!-- ajout commentaire -->
-      <div class="mx-auto max-w-2xl p-4 sm:p-6 lg:p-8">
-        <h2 class="font-bold">Ajout d'un commentaire</h2>
+      <div class="mx-auto max-w-3xl p-4 sm:p-6 lg:p-8">
+        <h2 class="font-bold">Écrire un commentaire</h2>
         <form method="POST"
-          action="{{ route('comments.store', ['post' => $observation->id]) }}">
+          action="{{ route('comments.store', ['observation' => $observation->id]) }}">
           @csrf
-          <textarea name="content"
-            class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">{{ old('message') }}</textarea>
+          <textarea name="content" rows="3"
+            class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"></textarea>
           <x-input-error :messages="$errors->all()" class="mt-2" /><br>
           <x-primary-button class="mt-4">Publier</x-primary-button>
         </form>

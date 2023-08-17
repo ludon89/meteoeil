@@ -28,7 +28,16 @@ class CommentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $userInput = $request->validate([
+            'content' => 'bail|required|string|max:512',
+        ]);
+
+        $userInput['user_id'] = auth()->id();
+        $userInput['observation_id'] = $request->observation;
+
+        Comment::create($userInput);
+
+        return redirect(route('observations.show', $request->observation));
     }
 
     /**
@@ -44,7 +53,11 @@ class CommentController extends Controller
      */
     public function edit(Comment $comment)
     {
-        //
+        $this->authorize('update', $comment);
+
+        return view('comments.edit', [
+            'comment' => $comment
+        ]);
     }
 
     /**
@@ -52,7 +65,17 @@ class CommentController extends Controller
      */
     public function update(Request $request, Comment $comment)
     {
-        //
+        $this->authorize('update', $comment);
+
+        $userInput = $request->validate([
+            'content' => 'bail|required|string|max:512',
+        ]);
+
+        $comment->update([
+            'content' => $userInput['content'],
+        ]);
+
+        return redirect(route('observations.show', $comment->observation));
     }
 
     /**
