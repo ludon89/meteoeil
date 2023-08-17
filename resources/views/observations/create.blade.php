@@ -11,18 +11,52 @@
         <label for="title">Titre :</label><br>
         <input type="text" name="title" id="title"
           class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
-        <label for="location">Lieu :</label>
+        <label for="location">Lieu :</label><br>
         <input type="text" name="location" id="location"
           class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
-        <label for="departement">Département :</label>
+        <label for="departement">Département :</label><br>
         <input type="text" name="departement" id="departement"
           class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
-        <label for="datetime">Date et heure :</label>
-        {{-- <input type="datetime-local" name="datetime" id="datetime"
-          class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"> --}}
+        <div class="flex flex-row">
+          <div class="pr-2">
+            <label for="date">Date :</label><br>
+            <input type="date" name="date" id="date"
+              class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+          </div>
+          <div class="pr-2">
+            <label for="time">Heure :</label><br>
+            <input type="time" name="time" id="time"
+              class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+          </div>
+        </div>
 
-        <label for="content">Description :</label>
-        <textarea name="content" id="content" rows=10
+        <div class="flex flex-row">
+          <div class="pr-2">
+            <label for="weather">Temps :</label><br>
+            <select name="weather" id="weather">
+              <option value="">Quel temps fait-il ?</option>
+              <option value="Ensoleillé">Ensoleillé</option>
+              <option value="Nuageux">Nuageux</option>
+              <option value="Couvert">Couvert</option>
+              <option value="Pluie faible">Pluie faible</option>
+              <option value="Pluie forte">Pluie forte</option>
+              <option value="Neige">Neige</option>
+              <option value="Pluie et neige mêlées">Pluie et neige mêlées
+              </option>
+              <option value="Orage">Orage</option>
+              <option value="Brouillard">Brouillard</option>
+            </select>
+          </div>
+          <div class="pr-2">
+            <label for="temperature">Température :</label><br>
+            <input type="text" inputmode="numeric" pattern="[0-9]+"
+              name="temperature" id="temperature"
+              class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+          </div>
+        </div>
+
+        <label for="content">Description :</label><br>
+        <textarea name="content" id="content" rows=6
           class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"></textarea>
         <label for="picture">Image :</label><br />
         <input type="file" name="picture" id="picture">
