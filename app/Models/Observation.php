@@ -13,7 +13,8 @@ class Observation extends Model
 
     protected $fillable = [
         'location',
-        'datetime',
+        'date',
+        'time',
         'departement',
         'weather',
         'temperature',

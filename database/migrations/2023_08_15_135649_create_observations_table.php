@@ -17,7 +17,8 @@ return new class extends Migration
             $table->string('title');
             $table->string('picture');
             $table->string('location');
-            $table->dateTime('datetime');
+            $table->date('date');
+            $table->time('time');
             $table->string('departement')->nullable();
             $table->string('weather')->nullable();
             $table->tinyInteger('temperature')->nullable();

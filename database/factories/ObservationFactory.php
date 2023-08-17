@@ -21,7 +21,8 @@ class ObservationFactory extends Factory
             'title' => fake()->sentence(),
             'picture' => '',
             'location' => fake()->city(),
-            'datetime' => fake()->dateTime(),
+            'date' => fake()->date(),
+            'time' => fake()->time(),
             'departement' => fake()->departmentNumber(),
             'weather' => fake()->randomElement([
                 'Ensoleillé',
