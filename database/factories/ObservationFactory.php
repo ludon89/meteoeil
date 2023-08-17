@@ -19,7 +19,17 @@ class ObservationFactory extends Factory
     {
         return [
             'title' => fake()->sentence(),
-            'picture' => '',
+            'picture' => fake()->randomElement([
+                'sample-images/sample-image1.jpg',
+                'sample-images/sample-image2.jpg',
+                'sample-images/sample-image3.jpg',
+                'sample-images/sample-image4.jpg',
+                'sample-images/sample-image5.jpg',
+                'sample-images/sample-image6.jpg',
+                'sample-images/sample-image7.jpg',
+                'sample-images/sample-image8.jpg',
+                'sample-images/sample-image9.jpg',
+            ]),
             'location' => fake()->city(),
             'date' => fake()->date(),
             'time' => fake()->time(),
