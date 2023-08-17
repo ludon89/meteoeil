@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use DateTime;
 use App\Models\Observation;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 class ObservationController extends Controller
@@ -18,6 +19,18 @@ class ObservationController extends Controller
 
         return view('observations.index', [
             'observations' => $observations,
+        ]);
+    }
+
+    /**
+     * Affiche toutes les observations postées par l'utilisateur.
+     */
+    public function indexDashboard()
+    {
+        $userObservations = Auth::user()->observations()->latest()->get();
+
+        return view('dashboard', [
+            'observations' => $userObservations,
         ]);
     }
 

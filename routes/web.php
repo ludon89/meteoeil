@@ -16,9 +16,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Routes ressources observations
+// ==================== Routes ressources ==================== //
+
 Route::resource('observations', ObservationController::class)
     ->middleware(['auth', 'verified']);
+
+Route::resource('comments', CommentController::class)
+    ->middleware(['auth', 'verified']);
+
+
+// ==================== //
 
 // Affichage page d'accueil
 Route::get('/', [ObservationController::class, 'index'])
@@ -29,16 +36,9 @@ Route::get('/observations/{observation}', [ObservationController::class, 'show']
     ->name('observations.show');
 
 // Affichage dashboard
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
-
-
-// ==================== //
-
-Route::resource('comments', CommentController::class)
-    ->middleware(['auth', 'verified']);
+Route::get('/dashboard', [ObservationController::class, 'indexDashboard'])
+    ->middleware(['auth', 'verified'])
+    ->name('dashboard');
 
 
 // ==================== //

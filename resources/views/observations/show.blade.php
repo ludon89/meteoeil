@@ -1,16 +1,14 @@
 <x-app-layout>
 
-  <x-slot name="header">
-    <h1 class="text-xl font-semibold leading-tight text-gray-800">
-      Article n° {{ $observation->id }}
-    </h1>
-  </x-slot>
-
   <!-- main content -->
   <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-    <h2 class="text-3xl font-bold">
+    <p class="text-xl font-semibold leading-tight text-gray-800">
+      Observation n° {{ $observation->id }}
+    </p>
+
+    <h1 class="text-3xl font-bold">
       {{ $observation->title }}
-    </h2>
+    </h1>
     <div class="max-w-6xl">
       <img
         src="{{ $observation->picture ? asset('storage/' . $observation->picture) : asset('images/placeholders/1200X800.png') }}"

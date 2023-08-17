@@ -73,15 +73,14 @@
         </div>
 
         <label for="description">Description :</label><br>
-        <textarea name="description" id="description" rows=6
-          value="{{ old('description', $observation->description) }}"
-          class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"></textarea>
+        <textarea name="description" id="description" rows=6 value=""
+          class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">{{ old('description', $observation->description) }}</textarea>
 
         <x-input-error :messages="$errors->all()" class="mt-2" /><br />
         <x-primary-button class="mt-4">Publier
         </x-primary-button>
       </form>
-      <a href="{{ url()->previous() }}">Retour</a>
+      <a href="{{ route('observations.show', $observation) }}">Retour</a>
     </div>
   </div>
 
