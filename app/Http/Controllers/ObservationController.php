@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use DateTime;
 use App\Models\Observation;
 use Illuminate\Http\Request;
 
@@ -45,7 +46,6 @@ class ObservationController extends Controller
         ]);
 
         $userInput['picture'] = $request->picture->store('user-obs', 'public');
-
         $userInput['user_id'] = auth()->id();
 
         Observation::create($userInput);
@@ -69,7 +69,11 @@ class ObservationController extends Controller
      */
     public function edit(Observation $observation)
     {
-        //
+        $this->authorize('update', $observation);
+
+        return view('observations.edit', [
+            'observation' => $observation
+        ]);
     }
 
     /**
@@ -77,7 +81,29 @@ class ObservationController extends Controller
      */
     public function update(Request $request, Observation $observation)
     {
-        //
+        $this->authorize('update', $observation);
+
+        $validation = [
+            'title' => 'bail|required|string|max:255',
+            'location' => 'bail|required|string|max:255',
+            'departement' => 'bail|required|string|max:3',
+            'weather' => 'bail|string|max:128',
+            'temperature' => 'bail|integer|between:-40,50',
+            'description' => 'bail|string|max:1024',
+        ];
+
+        $this->validate($request, $validation);
+
+        $observation->update([
+            'title' => $request->title,
+            'location' => $request->location,
+            'departement' => $request->departement,
+            'weather' => $request->weather,
+            'temperature' => $request->temperature,
+            'description' => $request->description,
+        ]);
+
+        return redirect(route('observations.show', $observation));
     }
 
     /**

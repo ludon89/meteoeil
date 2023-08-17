@@ -22,16 +22,6 @@
               <p>{{ $observation->weather }}</p>
             </div>
             <div>
-              {{-- @if ($observation->user->is(auth()->user()))
-                  <a href="{{ route('observations.edit', $observation) }}">Modifier</a>
-                  <form method="POST"
-                    action="{{ route('observations.destroy', $observation) }}">
-                    @csrf
-                    @method('DELETE')
-                    <a href="{{ route('observations.destroy', $observation) }}"
-                      onclick="event.preventDefault(); this.closest('form').submit();">Supprimer</a>
-                  </form>
-                @endif --}}
             </div>
             <div>
               <p>{{ $observation->temperature }}</p>
