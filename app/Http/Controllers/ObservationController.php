@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use DateTime;
 use App\Models\Observation;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ObservationController extends Controller
 {
@@ -111,6 +112,11 @@ class ObservationController extends Controller
      */
     public function destroy(Observation $observation)
     {
-        //
+        $this->authorize('delete', $observation);
+
+        Storage::disk('public')->delete($observation->picture);
+        $observation->delete();
+
+        return redirect(route('index'));
     }
 }

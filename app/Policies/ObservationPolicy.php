@@ -45,7 +45,7 @@ class ObservationPolicy
      */
     public function delete(User $user, Observation $observation): bool
     {
-        //
+        return $this->update($user, $observation);
     }
 
     /**

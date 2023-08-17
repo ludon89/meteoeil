@@ -35,21 +35,25 @@
       <p class="pb-6">
         {{ $observation->description }}
       </p>
-      <p class="pb-2">
-        Par {{ $observation->user->name }}
-      </p>
-      <!-- modif et suppr posts -->
-      {{-- @if ($post->user->is(auth()->user()))
-        <div class="pb-4">
-          <a href="{{ route('posts.edit', $post) }}">Modifier</a>
-          <form method="POST" action="{{ route('posts.destroy', $post) }}">
-            @csrf
-            @method('DELETE')
-            <a href="{{ route('posts.destroy', $post) }}"
-              onclick="event.preventDefault(); this.closest('form').submit();">Supprimer</a>
-          </form>
-        </div>
-      @endif --}}
+      <div class="flex flex-row justify-between">
+        <p class="pb-2">
+          Par {{ $observation->user->name }}
+        </p>
+        <!-- modif et suppr observations -->
+        @if ($observation->user->is(auth()->user()))
+          <div class="pb-4">
+            <a
+              href="{{ route('observations.edit', $observation) }}">Modifier</a>
+            <form method="POST"
+              action="{{ route('observations.destroy', $observation) }}">
+              @csrf
+              @method('DELETE')
+              <a href="{{ route('observations.destroy', $observation) }}"
+                onclick="event.preventDefault(); this.closest('form').submit();">Supprimer</a>
+            </form>
+          </div>
+        @endif
+      </div>
     </div>
 
 
