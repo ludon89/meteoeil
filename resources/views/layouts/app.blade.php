@@ -19,14 +19,20 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
   </head>
 
-  <body class="font-sans antialiased">
-    <div class="min-h-screen bg-gray-100">
-      @include('layouts.navigation')
+  <body class="font-sans text-gray-900 antialiased">
+    <div class="min-h-screen bg-white">
+      <div class="mx-auto max-w-5xl">
+        <!-- Header -->
+        @include('layouts.navigation')
 
-      <!-- Page Content -->
-      <main>
-        {{ $slot }}
-      </main>
+        <!-- Page Content -->
+        <main>
+          {{ $slot }}
+        </main>
+      </div>
+      <footer>
+
+      </footer>
     </div>
   </body>
 
