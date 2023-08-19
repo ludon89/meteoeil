@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Storage;
 class ObservationController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a listing of the observation.
      */
     public function index()
     {
@@ -23,7 +23,7 @@ class ObservationController extends Controller
     }
 
     /**
-     * Affiche toutes les observations postées par l'utilisateur.
+     * Display current user's dashboard with their observations.
      */
     public function indexDashboard()
     {
@@ -35,7 +35,7 @@ class ObservationController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show the form for creating a new observation.
      */
     public function create()
     {
@@ -43,7 +43,7 @@ class ObservationController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created observation in storage.
      */
     public function store(Request $request)
     {
@@ -68,7 +68,7 @@ class ObservationController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Display the specified observation with its associated comments.
      */
     public function show(Observation $observation)
     {
@@ -79,7 +79,7 @@ class ObservationController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Show the form for editing the specified observation.
      */
     public function edit(Observation $observation)
     {
@@ -91,7 +91,7 @@ class ObservationController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified observation in storage.
      */
     public function update(Request $request, Observation $observation)
     {
@@ -121,7 +121,7 @@ class ObservationController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove the specified observation from storage.
      */
     public function destroy(Observation $observation)
     {

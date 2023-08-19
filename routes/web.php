@@ -28,15 +28,15 @@ Route::resource('comments', CommentController::class)
 
 // ==================== //
 
-// Affichage page d'accueil
+// Display home page
 Route::get('/', [ObservationController::class, 'index'])
     ->name('index');
 
-// Affichage page d'observation
+// Display specified observation's page
 Route::get('/observations/{observation}', [ObservationController::class, 'show'])
     ->name('observations.show');
 
-// Affichage dashboard
+// Display user dashboard
 Route::get('/dashboard', [ObservationController::class, 'indexDashboard'])
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
@@ -44,8 +44,9 @@ Route::get('/dashboard', [ObservationController::class, 'indexDashboard'])
 
 // ==================== Admin ==================== //
 
+// Display admin dashboard
 Route::get('/admin/dashboard', [AdminController::class, 'adminDashboard'])
-    ->middleware(['auth', 'verified'])
+    // ->middleware(['auth', 'verified'])
     ->name('admin.dashboard');
 
 
