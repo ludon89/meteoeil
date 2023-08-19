@@ -45,7 +45,7 @@ class ObservationFactory extends Factory
                 'Orage',
                 'Brouillard'
             ]),
-            'temperature' => fake()->numberBetween(-40, 50),
+            'temperature' => fake()->numberBetween(-5, 35),
             'description' => fake()->paragraph(),
             'user_id' => User::all()->random()->id
         ];
