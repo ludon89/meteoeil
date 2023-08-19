@@ -38,10 +38,11 @@
           Par {{ $observation->user->name }}
         </p>
         <!-- modif et suppr observations -->
-        @if ($observation->user->is(auth()->user()))
-          <div class="pb-4">
-            <a
-              href="{{ route('observations.edit', $observation) }}">Modifier</a>
+        <div class="pb-4">
+          @can('update', $observation)
+            <a href="{{ route('observations.edit', $observation) }}">Modifier</a>
+          @endcan
+          @can('delete', $observation)
             <form method="POST"
               action="{{ route('observations.destroy', $observation) }}">
               @csrf
@@ -49,8 +50,8 @@
               <a href="{{ route('observations.destroy', $observation) }}"
                 onclick="event.preventDefault(); this.closest('form').submit();">Supprimer</a>
             </form>
-          </div>
-        @endif
+          @endcan
+        </div>
       </div>
     </div>
 
