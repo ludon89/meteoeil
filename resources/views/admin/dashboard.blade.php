@@ -49,12 +49,12 @@
                     {{ $user->comments_count }} comm.</div>
                   <div
                     class="table-cell whitespace-nowrap px-6 py-4 text-right text-sm font-medium">
-                    <form action="{{ route('admin.destroyuser', $user) }}"
-                      method="post">
+                    <form action="{{ route('admin.users.destroy', $user) }}"
+                      method="POST">
                       @csrf
-                      @method('delete')
+                      @method('DELETE')
                       <a class="text-blue-500 hover:text-blue-700"
-                        href="{{ route('admin.destroyuser', $user) }}">Delete</a>
+                        href="{{ route('admin.users.destroy', $user) }}">Delete</a>
                     </form>
                   </div>
                 </div>

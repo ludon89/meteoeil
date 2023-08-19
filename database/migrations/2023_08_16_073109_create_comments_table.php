@@ -17,10 +17,12 @@ return new class extends Migration
             $table->text('content');
             $table->foreignId('user_id')
                 ->constrained()
-                ->onUpdate('cascade');
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
             $table->foreignId('observation_id')
                 ->constrained()
-                ->onUpdate('cascade');
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
         });
     }
 

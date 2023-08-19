@@ -6,6 +6,7 @@ use App\Http\Controllers\ObservationController;
 use App\Http\Controllers\ProfileController;
 use Database\Seeders\AdminSeeder;
 use Illuminate\Support\Facades\Route;
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,14 +46,23 @@ Route::get('/dashboard', [ObservationController::class, 'indexDashboard'])
 
 // ==================== Admin ==================== //
 
+Route::group(['middleware' => ['auth', 'isadmin']], function () {
+    Route::get('/admin/dashboard', [AdminController::class, 'adminDashboard'])
+        ->name('admin.dashboard');
+    Route::delete('/admin/users/{user}', [AdminController::class, 'destroyUser'])
+        ->name('admin.users.destroy');
+    Route::redirect('/admin', '/admin/dashboard');
+});
+
 // Display admin dashboard
-Route::get('/admin/dashboard', [AdminController::class, 'adminDashboard'])
-    // ->middleware(['auth', 'verified'])
-    ->name('admin.dashboard');
+// Route::get('/admin/dashboard', [AdminController::class, 'adminDashboard'])
+//     ->middleware('isadmin')
+//     ->name('admin.dashboard');
 
 // Delete user
-Route::get('/admin/users/{user}', [AdminController::class, 'destroyUser'])
-    ->name('admin.destroyuser');
+// Route::get('/admin/users/{user}', [AdminController::class, 'destroyUser'])
+//     ->middleware('isdmin')
+//     ->name('admin.destroyuser');
 
 
 

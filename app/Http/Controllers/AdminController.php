@@ -13,12 +13,8 @@ class AdminController extends Controller
     /**
      * Display the admin dashboard page with a listing of all the users.
      */
-    public function adminDashboard(User $authUser)
+    public function adminDashboard()
     {
-        if (!Gate::allows('access-admin', $authUser)) {
-            abort(403);
-        }
-
         $userListing = User::orderBy('id', 'desc')
             ->withCount('observations', 'comments')
             ->get();
@@ -31,18 +27,11 @@ class AdminController extends Controller
     /**
      * Delete the specified user.
      */
-    public function destroyUser(User $user, $authUser)
+    public function destroyUser(User $user)
     {
-        if (!Gate::allows('access-admin', $authUser)) {
-            abort(403);
-        }
-
-        dd($user);
-
-        // $user = $request->user;
-        Auth::logout($user);
+        // dd($user);
         $user->delete;
 
-        return redirect(route('admin.dashboard'));
+        return redirect()->back();
     }
 }
