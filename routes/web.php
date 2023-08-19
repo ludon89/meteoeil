@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ObservationController;
 use App\Http\Controllers\ProfileController;
@@ -39,6 +40,14 @@ Route::get('/observations/{observation}', [ObservationController::class, 'show']
 Route::get('/dashboard', [ObservationController::class, 'indexDashboard'])
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
+
+
+// ==================== Admin ==================== //
+
+Route::get('/admin/dashboard', [AdminController::class, 'adminDashboard'])
+    ->middleware(['auth', 'verified'])
+    ->name('admin.dashboard');
+
 
 
 // ==================== //

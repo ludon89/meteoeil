@@ -15,8 +15,16 @@
         <!-- Navigation Links -->
         <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
           <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-            {{ __('Dashboard') }}
+            Tableau de bord
           </x-nav-link>
+          <!-- Accès dashboard admin -->
+          @auth
+            @if (Auth::user()->is_admin)
+              <x-nav-link :href="route('admin.dashboard')" :active="request()->routeIs('admin.dashboard')">
+                Tableau de bord admin
+              </x-nav-link>
+            @endif
+          @endauth
           <x-nav-link :href="route('observations.create')" :active="request()->routeIs('observations.create')">
             Nouvelle observation
           </x-nav-link>
@@ -96,8 +104,16 @@
   <div :class="{ 'block': open, 'hidden': !open }" class="hidden sm:hidden">
     <div class="space-y-1 pb-3 pt-2">
       <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-        {{ __('Dashboard') }}
+        Dashboard
       </x-responsive-nav-link>
+      <!-- Accès dashboard admin -->
+      @auth
+        @if (Auth::user()->is_admin)
+          <x-responsive-nav-link :href="route('admin.dashboard')" :active="request()->routeIs('admin.dashboard')">
+            Tableau de bord admin
+          </x-responsive-nav-link>
+        @endif
+      @endauth
       <x-responsive-nav-link :href="route('observations.create')" :active="request()->routeIs('observations.create')">
         Nouvelle observation
       </x-responsive-nav-link>
