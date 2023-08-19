@@ -43,14 +43,19 @@
                     {{ $user->id }}</div>
                   <div
                     class="table-cell whitespace-nowrap px-6 py-4 text-sm text-gray-800 dark:text-gray-200">
-                    ###</div>
+                    {{ $user->observations_count }} obs.</div>
                   <div
                     class="table-cell whitespace-nowrap px-6 py-4 text-sm text-gray-800 dark:text-gray-200">
-                    ###</div>
+                    {{ $user->comments_count }} comm.</div>
                   <div
                     class="table-cell whitespace-nowrap px-6 py-4 text-right text-sm font-medium">
-                    <a class="text-blue-500 hover:text-blue-700"
-                      href="#">Delete</a>
+                    <form action="{{ route('admin.destroyuser', $user) }}"
+                      method="post">
+                      @csrf
+                      @method('delete')
+                      <a class="text-blue-500 hover:text-blue-700"
+                        href="{{ route('admin.destroyuser', $user) }}">Delete</a>
+                    </form>
                   </div>
                 </div>
               </div>

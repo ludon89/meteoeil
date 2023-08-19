@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ObservationController;
 use App\Http\Controllers\ProfileController;
+use Database\Seeders\AdminSeeder;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -48,6 +49,10 @@ Route::get('/dashboard', [ObservationController::class, 'indexDashboard'])
 Route::get('/admin/dashboard', [AdminController::class, 'adminDashboard'])
     // ->middleware(['auth', 'verified'])
     ->name('admin.dashboard');
+
+// Delete user
+Route::get('/admin/users/{user}', [AdminController::class, 'destroyUser'])
+    ->name('admin.destroyuser');
 
 
 
