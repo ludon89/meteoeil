@@ -43,7 +43,6 @@ class ProfileController extends Controller
             }
 
             $newAvatarPath = $request->avatar->store('user-avatars', 'public');
-            // dd($newAvatarPath);
         };
 
         $request->user()->update([
