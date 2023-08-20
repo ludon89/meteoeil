@@ -54,16 +54,6 @@ Route::group(['middleware' => ['auth', 'isadmin']], function () {
     Route::redirect('/admin', '/admin/dashboard');
 });
 
-// Display admin dashboard
-// Route::get('/admin/dashboard', [AdminController::class, 'adminDashboard'])
-//     ->middleware('isadmin')
-//     ->name('admin.dashboard');
-
-// Delete user
-// Route::get('/admin/users/{user}', [AdminController::class, 'destroyUser'])
-//     ->middleware('isdmin')
-//     ->name('admin.destroyuser');
-
 
 
 // ==================== //
