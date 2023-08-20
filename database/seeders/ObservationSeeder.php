@@ -13,6 +13,6 @@ class ObservationSeeder extends Seeder
      */
     public function run(): void
     {
-        Observation::factory(5)->create();
+        Observation::factory(10)->create();
     }
 }

@@ -68,11 +68,13 @@
             <p>{{ $comment->content }}</p>
             <p class="text-sm">Par {{ $comment->user->name }} le
               {{ $comment->created_at }}</p>
-            @if ($comment->user->is(auth()->user()))
-              <!-- modif & suppr commentaires -->
+            <!-- modif & suppr commentaires -->
+            @can('update', $comment)
               <a href="{{ route('comments.edit', $comment) }}">
                 <x-primary-button>Modifier</x-primary-button>
               </a>
+            @endcan
+            @can('delete', $comment)
               <form method="POST"
                 action="{{ route('comments.destroy', $comment) }}">
                 @csrf
@@ -82,7 +84,7 @@
                   <x-danger-button>Supprimer</x-danger-button>
                 </a>
               </form>
-            @endif
+            @endcan
           </div>
         @endforeach
       </div>
