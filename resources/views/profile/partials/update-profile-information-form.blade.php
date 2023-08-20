@@ -15,7 +15,7 @@
   </form>
 
   <form method="post" action="{{ route('profile.update') }}"
-    class="mt-6 space-y-6">
+    enctype="multipart/form-data" class="mt-6 space-y-6">
     @csrf
     @method('patch')
 
@@ -56,8 +56,19 @@
       @endif
     </div>
 
+    <div>
+      <label for="avatar" class="block">Avatar :</label><br>
+      <input type="file" id="avatar" name="avatar"
+        class="block w-full text-sm text-gray-500 file:mr-4 file:rounded-md file:border-0 file:bg-blue-500 file:px-4 file:py-2 file:text-sm file:font-semibold file:text-white hover:file:bg-blue-600" />
+      <p>Photo actuelle:</p>
+      <img src="{{ asset('images/placeholders/avatar.svg') }}" alt="Avatar"
+        class="h-20">
+      <button type="button" onclick="">Supprimer</button>
+    </div>
+
+
     <div class="flex items-center gap-4">
-      <x-primary-button>{{ __('Save') }}</x-primary-button>
+      <x-primary-button>Enregistrer</x-primary-button>
 
       @if (session('status') === 'profile-updated')
         <p x-data="{ show: true }" x-show="show" x-transition
