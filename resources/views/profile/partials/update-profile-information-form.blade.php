@@ -75,12 +75,7 @@
     </div>
   </form>
 
-  @php
-    echo auth()
-        ->user()
-        ->getOriginal('avatar');
-  @endphp
-  @if (!is_null(auth()->user()->getOriginal('avatar')))
+  @if (!is_null(auth()->user()->avatar))
     <form method="POST" action="{{ route('profile.avatar.destroy') }}"
       class="mt-6 space-y-2">
       @csrf

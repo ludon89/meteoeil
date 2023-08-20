@@ -59,9 +59,14 @@ class ProfileController extends Controller
      */
     public function avatarDestroy(Request $request): RedirectResponse
     {
-        $currentUserAvatar = $request->user()->avatar;
+        $currentUser = auth()->user();
 
-        Storage::disk('public')->delete($currentUserAvatar);
+        if (!is_null($currentUser->avatar)) {
+            Storage::disk('public')->delete($currentUser->avatar);
+        }
+
+        $currentUser->avatar = null;
+        $currentUser->save();
 
         return Redirect::route('profile.edit')->with('status', 'profile-updated');
     }
