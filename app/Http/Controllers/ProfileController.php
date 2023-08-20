@@ -55,6 +55,18 @@ class ProfileController extends Controller
     }
 
     /**
+     * Delete the user's avatar.
+     */
+    public function avatarDestroy(Request $request): RedirectResponse
+    {
+        $currentUserAvatar = $request->user()->avatar;
+
+        Storage::disk('public')->delete($currentUserAvatar);
+
+        return Redirect::route('profile.edit')->with('status', 'profile-updated');
+    }
+
+    /**
      * Delete the user's account.
      */
     public function destroy(Request $request): RedirectResponse
@@ -64,6 +76,9 @@ class ProfileController extends Controller
         ]);
 
         $user = $request->user();
+        $currentUserAvatar = $request->user()->avatar;
+
+        Storage::disk('public')->delete($currentUserAvatar);
 
         Auth::logout();
 

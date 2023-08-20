@@ -61,10 +61,6 @@
       <input type="file" id="avatar" name="avatar"
         class="block w-full text-sm text-gray-500 file:mr-4 file:rounded-md file:border-0 file:bg-blue-500 file:px-4 file:py-2 file:text-sm file:font-semibold file:text-white hover:file:bg-blue-600" />
       <x-input-error class="mt-2" :messages="$errors->get('avatar')" />
-      <p>Photo actuelle:</p>
-      <img src="{{ asset('images/placeholders/avatar.svg') }}" alt="Avatar"
-        class="h-20">
-      <button type="button" onclick="">Supprimer</button>
     </div>
 
 
@@ -78,4 +74,21 @@
       @endif
     </div>
   </form>
+
+  @php
+    echo auth()
+        ->user()
+        ->getOriginal('avatar');
+  @endphp
+  @if (!is_null(auth()->user()->getOriginal('avatar')))
+    <form method="POST" action="{{ route('profile.avatar.destroy') }}"
+      class="mt-6 space-y-2">
+      @csrf
+      @method('DELETE')
+      <p>Photo actuelle:</p>
+      <img src="{{ asset('storage/' . auth()->user()->avatar) }}" alt="Avatar"
+        class="h-20">
+      <button type="submit">Supprimer</button>
+    </form>
+  @endif
 </section>
