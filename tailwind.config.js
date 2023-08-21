@@ -18,7 +18,15 @@ export default {
     },
   },
 
-  plugins: [forms, require("preline/plugin")],
+  corePlugins: {
+    aspectRatio: false,
+  },
+
+  plugins: [
+    forms,
+    require("preline/plugin"),
+    require("@tailwindcss/aspect-ratio"),
+  ],
 
   darkMode: "class",
 };
