@@ -1,6 +1,6 @@
-<div>
-  <p
-    {{ $attributes->merge(['class' => 'absolute rounded-md bg-black/60 p-2']) }}>
+<div {{ $attributes->merge(['class' => 'absolute']) }}>
+  <span
+    {{ $attributes->merge(['class' => 'absolute rounded-md bg-black/50 p-2 text-white']) }}>
     {{ $slot }}
-  </p>
+  </span>
 </div>
