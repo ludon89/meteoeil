@@ -29,7 +29,7 @@ class ObservationController extends Controller
     {
         $userObservations = Auth::user()->observations()->latest()->get();
 
-        return view('dashboard', [
+        return view('profile.dashboard', [
             'observations' => $userObservations,
         ]);
     }

@@ -29,7 +29,6 @@ class AdminController extends Controller
      */
     public function destroyUser(User $user)
     {
-        // dd($user);
         $user->delete();
 
         return redirect()->back();
