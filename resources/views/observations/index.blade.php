@@ -6,6 +6,8 @@
     </h1>
   </div>
 
+
+
   <div class="columns-1 gap-6 px-2 text-gray-100 sm:columns-2 md:columns-3">
     @foreach ($observations as $observation)
       <a class="group relative mb-6 block overflow-hidden"
@@ -16,40 +18,51 @@
           {{ $observation->location }}
         </x-obs-card-info>
         <x-obs-card-info class="bottom-0 left-0">
-          {{ $observation->weather }}
+          @switch($observation)
+            @case($observation->weather == 'Ensoleillé')
+              <i class="bi bi-sun-fill text-3xl"></i>
+            @break
+
+            @case($observation->weather == 'Nuageux')
+              <i class="bi bi-cloud-sun-fill text-3xl"></i>
+            @break
+
+            @case($observation->weather == 'Couvert')
+              <i class="bi bi-cloudy-fill text-3xl"></i>
+            @break
+
+            @case($observation->weather == 'Pluie faible')
+              <i class="bi bi-cloud-drizzle-fill text-3xl"></i>
+            @break
+
+            @case($observation->weather == 'Pluie forte')
+              <i class="bi bi-cloud-rain-heavy-fill text-3xl"></i>
+            @break
+
+            @case($observation->weather == 'Neige')
+              <i class="bi bi-cloud-snow-fill text-3xl"></i>
+            @break
+
+            @case($observation->weather == 'Pluie et neige mêlées')
+              <i class="bi bi-cloud-sleet-fill text-3xl"></i>
+            @break
+
+            @case($observation->weather == 'Orage')
+              <i class="bi bi-cloud-lightning-fill text-3xl"></i>
+            @break
+
+            @case($observation->weather == 'Brouillard')
+              <i class="bi bi-cloud-haze-fill text-3xl"></i>
+            @break
+
+            @default
+              {{ $observation->weather }}
+          @endswitch
         </x-obs-card-info>
         <x-obs-card-info class="bottom-0 right-0">
           {{ $observation->temperature }} °C
         </x-obs-card-info>
       </a>
-    @endforeach
-  </div>
-
-  <div class="mx-auto max-w-7xl p-4 sm:p-6 lg:p-8">
-    @foreach ($observations as $observation)
-      <div class="pb-6">
-        <h1 class="font-bold">
-          <a href="{{ route('observations.show', $observation) }}">
-            {{ $observation->location }}
-          </a>
-        </h1>
-        <div class="max-w-xl">
-          <img
-            src="{{ $observation->picture ? asset('storage/' . $observation->picture) : asset('images/placeholders/1200X800.png') }}"
-            alt="">
-          <div class="flex justify-between">
-            <div>
-              <p>{{ $observation->weather }}</p>
-            </div>
-            <div>
-            </div>
-            <div>
-              <p>{{ $observation->temperature }}</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <hr>
     @endforeach
   </div>
 
