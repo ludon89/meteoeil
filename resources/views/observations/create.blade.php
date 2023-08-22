@@ -35,7 +35,7 @@
 
         <div class="flex flex-row"> <!-- Temps & température -->
           <div class="pr-2">
-            <label for="weather">Temps :</label><br>
+            <label for="weather">Météo :</label><br>
             <select name="weather" id="weather">
               <option value="">Quel temps fait-il ?</option>
               <option value="Ensoleillé">Ensoleillé</option>

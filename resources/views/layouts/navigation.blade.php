@@ -10,11 +10,10 @@
         <img src="{{ asset('images/logo-meteoeil-cropped-removebg.png') }}"
           alt="Logo du site Météœil" class="h-20">
         <div>
-          <h1 class="text-xl text-sky-800">
+          <p class="text-xl text-sky-800">
             Météœil
-          </h1>
-          <p class="text-sm font-light italic text-sky-800">Votre
-            regard sur la
+          </p>
+          <p class="text-sm font-light italic text-sky-800">Votre regard sur la
             météo</p>
         </div>
       </a>
@@ -76,7 +75,9 @@
             <form method="POST" action="{{ route('logout') }}">
               @csrf
               <a class="flex items-center gap-x-3.5 rounded-md px-3 py-2 text-sm text-gray-800 hover:bg-gray-100 focus:ring-2 focus:ring-blue-500 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300"
-                href="{{ route('logout') }}">
+                href="{{ route('logout') }}"
+                onclick="event.preventDefault();
+                           this.closest('form').submit();">
                 Déconnexion
               </a>
             </form>
@@ -97,23 +98,3 @@
     </div>
   </nav>
 </header>
-
-
-{{-- <div class="pr-1 sm:hidden">
-  <button type="button"
-    class="hs-collapse-toggle inline-flex items-center justify-center gap-2 rounded-md border bg-white p-2 align-middle text-sm font-medium text-gray-700 shadow-sm transition-all hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 focus:ring-offset-white dark:border-gray-700 dark:bg-slate-900 dark:text-gray-400 dark:hover:bg-slate-800 dark:hover:text-white dark:focus:ring-offset-gray-800"
-    data-hs-collapse="#navbar-image-and-text-1"
-    aria-controls="navbar-image-and-text-1"
-    aria-label="Toggle navigation">
-    <svg class="h-4 w-4 hs-collapse-open:hidden" width="16"
-      height="16" fill="currentColor" viewBox="0 0 16 16">
-      <path fill-rule="evenodd"
-        d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
-    </svg>
-    <svg class="hidden h-4 w-4 hs-collapse-open:block" width="16"
-      height="16" fill="currentColor" viewBox="0 0 16 16">
-      <path
-        d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
-    </svg>
-  </button>
-</div> --}}

@@ -30,7 +30,7 @@
         @include('layouts.navigation')
 
         <!-- Page Content -->
-        <main class="mx-auto px-2">
+        <main class="mx-auto px-2 pb-6 pt-2">
           {{ $slot }}
         </main>
       </div>
