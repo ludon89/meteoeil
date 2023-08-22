@@ -7,7 +7,7 @@
   </div>
 
   <div
-    class="grid grid-cols-1 gap-4 px-2 text-gray-100 sm:grid-cols-2 min-[820px]:grid-cols-3">
+    class="mb-10 grid grid-cols-1 gap-4 text-gray-100 sm:grid-cols-2 min-[820px]:grid-cols-3">
     @foreach ($observations as $observation)
       <a href="{{ route('observations.show', $observation) }}">
         <div class="aspect-h-3 aspect-w-4 relative">
