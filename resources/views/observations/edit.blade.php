@@ -1,11 +1,11 @@
 <x-app-layout>
 
   <div class="mx-auto max-w-5xl px-4 py-6 sm:px-6 lg:px-8">
-    <h1 class="text-xl font-semibold leading-tight text-gray-800">
+    <h2 class="text-center text-xl font-semibold leading-tight text-gray-800">
       Modifier une observation
-    </h1>
+    </h2>
 
-    <div class="max-w-xs">
+    <div class="mx-auto max-w-xs">
       <img
         src="{{ $observation->picture ? asset('storage/' . $observation->picture) : asset('images/placeholders/1200X800.png') }}"
         alt="">
@@ -49,7 +49,8 @@
           <div class="pr-2">
             <label for="weather">Temps :</label><br>
             <select name="weather" id="weather">
-              <option value="">{{ old('weather', $observation->weather) }}
+              <option value="{{ old('weather', $observation->weather) }}">
+                {{ old('weather', $observation->weather) }}
               </option>
               <option value="Ensoleillé">Ensoleillé</option>
               <option value="Nuageux">Nuageux</option>
