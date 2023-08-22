@@ -6,42 +6,26 @@
     </h1>
   </div>
 
-  <div class="mx-auto max-w-7xl sm:px-6 lg:p-8">
+  <div class="mx-auto mb-10 grid max-w-3xl grid-cols-1 gap-12 text-gray-100">
     @foreach ($observations as $observation)
-      <div class="pb-6">
-        <h1 class="font-bold">
-          <a href="{{ route('observations.show', $observation) }}">
-            {{ $observation->location }}
-          </a>
-        </h1>
-        <div class="max-w-xl">
+      <a href="{{ route('observations.show', $observation) }}">
+        <div class="aspect-h-3 aspect-w-4 relative">
           <img
             src="{{ $observation->picture ? asset('storage/' . $observation->picture) : asset('images/placeholders/1200X800.png') }}"
-            alt="">
-          <div class="flex justify-between">
-            <div>
-              <p>{{ $observation->weather }}</p>
-            </div>
-            <div>
-              <a
-                href="{{ route('observations.edit', $observation) }}">Modifier</a>
-              <form method="POST"
-                action="{{ route('observations.destroy', $observation) }}">
-                @csrf
-                @method('DELETE')
-                <a href="{{ route('observations.destroy', $observation) }}"
-                  onclick="event.preventDefault(); this.closest('form').submit();">Supprimer</a>
-              </form>
-            </div>
-            <div>
-              <p>{{ $observation->temperature }}</p>
-            </div>
-          </div>
+            alt=""
+            class="absolute left-0 top-0 h-full w-full rounded-md object-cover">
+          <x-obs-card-info class="left-0 top-0">
+            {{ $observation->location }}
+          </x-obs-card-info>
+          <x-obs-card-info class="bottom-0 left-0">
+            <x-weather-icon :observation="$observation" />
+          </x-obs-card-info>
+          <x-obs-card-info class="bottom-0 right-0">
+            {{ $observation->temperature }} °C
+          </x-obs-card-info>
         </div>
-      </div>
-      <hr>
+      </a>
     @endforeach
   </div>
-  <hr>
 
 </x-app-layout>

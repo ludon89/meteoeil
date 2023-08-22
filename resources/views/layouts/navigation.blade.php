@@ -49,7 +49,7 @@
               <p class="text-sm text-gray-500 dark:text-gray-400">Connecté en tant
                 que</p>
               <p class="text-sm font-medium text-gray-800 dark:text-gray-300">
-                james@site.com</p>
+                {{ Auth::user()->name }}</p>
             </div>
           </a>
         @endauth

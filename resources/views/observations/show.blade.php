@@ -9,10 +9,13 @@
     <h1 class="text-3xl font-bold">
       {{ $observation->title }}
     </h1>
-    <div class="max-w-6xl">
-      <img
-        src="{{ $observation->picture ? asset('storage/' . $observation->picture) : asset('images/placeholders/1200X800.png') }}"
-        alt="">
+    <div class="mx-auto max-w-7xl">
+      <a
+        href="{{ $observation->picture ? asset('storage/' . $observation->picture) : '#' }}">
+        <img
+          src="{{ $observation->picture ? asset('storage/' . $observation->picture) : asset('images/placeholders/1200X800.png') }}"
+          alt="" class="mx-auto max-h-screen">
+      </a>
     </div>
     <div class="mb-6 max-w-6xl bg-gray-800 p-4 text-white">
       <div class="flex justify-between">
