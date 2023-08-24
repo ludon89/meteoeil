@@ -53,9 +53,9 @@ class ObservationController extends Controller
             'location' => 'bail|required|string|max:128',
             'date' => 'bail|required|date',
             'time' => 'bail|required|date_format:H:i',
-            'departement' => 'bail|required|string|max:3',
-            'weather' => 'bail|string|max:64',
-            'temperature' => 'bail|integer|between:-40,50',
+            'departement' => 'bail|required|string|max:2',
+            'weather' => 'bail|string|max:64|nullable',
+            'temperature' => 'bail|integer|between:-40,50|nullable',
             'description' => 'bail|string|max:512|nullable',
         ]);
 
