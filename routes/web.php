@@ -66,11 +66,5 @@ Route::middleware('auth')->group(function () {
 
 
 
-// ==================== Debug ==================== //
-
-Route::get('/test', function () {
-    return view('test');
-})->name('test');
-
 
 require __DIR__ . '/auth.php';
