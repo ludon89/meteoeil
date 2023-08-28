@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .footer {
+    width: 100vw;
+    position: relative;
+    left: calc(-50vw + 50%);
+  }
+}

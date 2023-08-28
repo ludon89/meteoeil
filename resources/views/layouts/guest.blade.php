@@ -24,21 +24,35 @@
   </head>
 
   <body class="font-sans text-gray-900 antialiased">
-    @include('layouts.navigation')
+    <div class="mx-auto max-w-5xl">
+      <div class="flex min-h-screen flex-col">
+        <!-- Header -->
+        @include('layouts.navigation')
 
-    <div
-      class="flex min-h-screen flex-col items-center bg-gray-100 pt-6 sm:justify-center sm:pt-0">
-      <div>
-        <a href="{{ route('index') }}">
-          <x-application-logo class="h-28 w-28" />
-        </a>
-      </div>
+        <!-- Main -->
+        <main
+          class="flex h-full flex-col items-center pb-6 pt-6 sm:justify-center sm:pt-0">
+          <div>
+            <a href="{{ route('index') }}">
+              <x-application-logo class="h-28 w-28" />
+            </a>
+          </div>
 
-      <div
-        class="mt-6 w-full overflow-hidden bg-white px-6 py-4 shadow-md sm:max-w-md sm:rounded-lg">
-        {{ $slot }}
+          <div
+            class="mt-6 w-full overflow-hidden bg-white px-6 py-4 shadow-md sm:max-w-md sm:rounded-lg">
+            {{ $slot }}
+          </div>
+        </main>
+
+        <footer class="footer mt-auto">
+          <div
+            class="flex flex-row justify-center bg-sky-800 py-6 align-middle text-white sm:py-10">
+            <p>© Ludon89</p>
+          </div>
+        </footer>
       </div>
     </div>
+
   </body>
 
 </html>
