@@ -37,19 +37,14 @@
               <x-application-logo class="h-28 w-28" />
             </a>
           </div>
-
           <div
             class="mt-6 w-full overflow-hidden bg-white px-6 py-4 shadow-md sm:max-w-md sm:rounded-lg">
             {{ $slot }}
           </div>
         </main>
 
-        <footer class="footer mt-auto">
-          <div
-            class="flex flex-row justify-center bg-sky-800 py-6 align-middle text-white sm:py-10">
-            <p>© Ludon89</p>
-          </div>
-        </footer>
+        <!-- Footer -->
+        @include('layouts.footer')
       </div>
     </div>
 

@@ -33,10 +33,10 @@
         <main class="mx-auto px-2 pb-6 pt-2">
           {{ $slot }}
         </main>
-      </div>
-      <footer>
 
-      </footer>
+        <!-- Footer -->
+        @include('layouts.footer')
+      </div>
     </div>
   </body>
 
