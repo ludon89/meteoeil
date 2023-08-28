@@ -23,20 +23,25 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
   </head>
 
-  <body class="font-sans text-gray-900 antialiased">
-    <div class="min-h-screen bg-white">
-      <div class="mx-auto max-w-5xl">
-        <!-- Header -->
-        @include('layouts.navigation')
+  <body class="bg-white font-sans text-gray-900 antialiased">
+    <div class="flex min-h-screen flex-col">
+      <!-- Header -->
+      <header>
+        <div class="mx-auto max-w-5xl">
+          @include('layouts.navigation')
+        </div>
+      </header>
 
-        <!-- Page Content -->
-        <main class="mx-auto px-2 pb-6 pt-2">
+      <!-- Main -->
+      <main class="flex-grow">
+        <div class="mx-auto max-w-5xl px-2 pb-6 pt-2">
           {{ $slot }}
-        </main>
+        </div>
+      </main>
 
-        <!-- Footer -->
+      <!-- Footer -->
+      <footer class="mt-auto">
         @include('layouts.footer')
-      </div>
     </div>
   </body>
 

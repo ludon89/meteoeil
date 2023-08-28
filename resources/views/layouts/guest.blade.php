@@ -29,14 +29,14 @@
       <header>
         <div class="mx-auto max-w-5xl">
           @include('layouts.navigation')
-          <!-- Main -->
         </div>
       </header>
 
+      <!-- Main -->
       <main class="flex-grow">
         <div
           class="mx-auto flex h-full max-w-5xl flex-col items-center pb-6 pt-6 sm:justify-center sm:pt-0">
-          <div class="">
+          <div>
             <a href="{{ route('index') }}">
               <x-application-logo class="h-28 w-28" />
             </a>
@@ -49,7 +49,9 @@
       </main>
 
       <!-- Footer -->
-      @include('layouts.footer')
+      <footer class="mt-auto">
+        @include('layouts.footer')
+      </footer>
     </div>
 
   </body>
