@@ -24,15 +24,19 @@
   </head>
 
   <body class="font-sans text-gray-900 antialiased">
-    <div class="mx-auto max-w-5xl">
-      <div class="flex min-h-screen flex-col">
-        <!-- Header -->
-        @include('layouts.navigation')
+    <div class="flex min-h-screen flex-col">
+      <!-- Header -->
+      <header>
+        <div class="mx-auto max-w-5xl">
+          @include('layouts.navigation')
+          <!-- Main -->
+        </div>
+      </header>
 
-        <!-- Main -->
-        <main
-          class="flex h-full flex-col items-center pb-6 pt-6 sm:justify-center sm:pt-0">
-          <div>
+      <main class="flex-grow">
+        <div
+          class="mx-auto flex h-full max-w-5xl flex-col items-center pb-6 pt-6 sm:justify-center sm:pt-0">
+          <div class="">
             <a href="{{ route('index') }}">
               <x-application-logo class="h-28 w-28" />
             </a>
@@ -41,11 +45,11 @@
             class="mt-6 w-full overflow-hidden bg-white px-6 py-4 shadow-md sm:max-w-md sm:rounded-lg">
             {{ $slot }}
           </div>
-        </main>
+        </div>
+      </main>
 
-        <!-- Footer -->
-        @include('layouts.footer')
-      </div>
+      <!-- Footer -->
+      @include('layouts.footer')
     </div>
 
   </body>

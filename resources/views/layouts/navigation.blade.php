@@ -1,4 +1,4 @@
-<header
+<div
   class="z-50 flex w-full flex-wrap border-b border-gray-100 bg-white py-4 text-sm dark:bg-gray-800 sm:flex-nowrap sm:justify-start">
   <nav class="mx-auto flex w-full justify-between px-2 sm:items-center"
     aria-label="Global">
@@ -99,4 +99,4 @@
       </div>
     </div>
   </nav>
-</header>
+</div>
