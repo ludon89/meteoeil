@@ -12,23 +12,28 @@
 
         <label for="title">Titre :</label><br>
         <input type="text" name="title" id="title"
+          value="{{ old('title') }}"
           class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
         <label for="location">Lieu :</label><br>
         <input type="text" name="location" id="location"
+          value="{{ old('location') }}"
           class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
         <label for="departement">Département :</label><br>
         <input type="text" name="departement" id="departement"
+          value="{{ old('departement') }}"
           class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
 
         <div class="flex flex-row"> <!-- Date & heure -->
           <div class="pr-2">
             <label for="date">Date :</label><br>
             <input type="date" name="date" id="date"
+              value="{{ old('date') }}"
               class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
           </div>
           <div class="pr-2">
             <label for="time">Heure :</label><br>
             <input type="time" name="time" id="time"
+              value="{{ old('time') }}"
               class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
           </div>
         </div>
@@ -36,7 +41,7 @@
         <div class="flex flex-row"> <!-- Temps & température -->
           <div class="pr-2">
             <label for="weather">Météo :</label><br>
-            <select name="weather" id="weather">
+            <select name="weather" id="weather" value="{{ old('weather') }}">
               <option value="">Quel temps fait-il ?</option>
               <option value="Ensoleillé">Ensoleillé</option>
               <option value="Nuageux">Nuageux</option>
@@ -54,12 +59,14 @@
             <label for="temperature">Température :</label><br>
             <input type="text" inputmode="numeric" pattern="[0-9]+"
               name="temperature" id="temperature"
+              value="{{ old('temperature') }}"
               class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
           </div>
         </div>
 
         <label for="description">Description :</label><br>
         <textarea name="description" id="description" rows=6
+          value="{{ old('description') }}"
           class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"></textarea>
         <label for="picture">Image :</label><br>
         <input type="file" name="picture" id="picture">

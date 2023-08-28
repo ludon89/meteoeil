@@ -42,6 +42,7 @@ Route::get('/dashboard', [ObservationController::class, 'indexDashboard'])
     ->name('dashboard');
 
 
+
 // ==================== Admin ==================== //
 
 Route::group(['middleware' => ['auth', 'isadmin']], function () {
@@ -54,7 +55,7 @@ Route::group(['middleware' => ['auth', 'isadmin']], function () {
 
 
 
-// ==================== //
+// ==================== Auth ==================== //
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -64,7 +65,8 @@ Route::middleware('auth')->group(function () {
 });
 
 
-// ==================== //
+
+// ==================== Debug ==================== //
 
 Route::get('/test', function () {
     return view('test');
