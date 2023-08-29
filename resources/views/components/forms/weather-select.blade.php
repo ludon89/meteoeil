@@ -3,10 +3,6 @@
 <label for="weather">Météo :</label><br>
 <select name="weather" id="weather">
   @isset($observation)
-    <option value="" disabled
-      {{ old('weather', $observation->weather) ? '' : 'selected' }}>
-      Quel temps fait-il ?
-    </option>
     <option value="Ensoleillé"
       {{ old('weather', $observation->weather) == 'Ensoleillé' ? 'selected' : '' }}>
       Ensoleillé

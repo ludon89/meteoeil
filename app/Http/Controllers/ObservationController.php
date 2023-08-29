@@ -99,10 +99,12 @@ class ObservationController extends Controller
     {
         $this->authorize('update', $observation);
 
+        $departementCodes = array_keys(config('departements'));
+
         $validation = [
             'title' => 'bail|required|string|max:128',
             'location' => 'bail|required|string|max:128',
-            'departement' => 'bail|required|string|max:3',
+            'departement' => ['bail', 'required', 'string', 'in:' . implode(',', $departementCodes)],
             'weather' => 'bail|required|in:Ensoleillé,Nuageux,Couvert,Pluie faible,Pluie forte,Neige,Pluie et neige mêlées,Orage,Brouillard',
             'temperature' => 'bail|integer|between:-40,50',
             'description' => 'bail|string|max:512|nullable',
