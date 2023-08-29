@@ -4,7 +4,7 @@
 
     <!-- Name -->
     <div>
-      <x-input-label for="name" :value="__('Nom d\'utilisateur')" />
+      <x-forms.input-label for="name" :value="__('Nom d\'utilisateur')" />
       <x-text-input id="name" class="mt-1 block w-full" type="text"
         name="name" :value="old('name')" required autofocus autocomplete="name" />
       <x-input-error :messages="$errors->get('name')" class="mt-2" />
@@ -12,7 +12,7 @@
 
     <!-- Email Address -->
     <div class="mt-4">
-      <x-input-label for="email" :value="__('Email')" />
+      <x-forms.input-label for="email" :value="__('Email')" />
       <x-text-input id="email" class="mt-1 block w-full" type="email"
         name="email" :value="old('email')" required autocomplete="username" />
       <x-input-error :messages="$errors->get('email')" class="mt-2" />
@@ -20,7 +20,7 @@
 
     <!-- Password -->
     <div class="mt-4">
-      <x-input-label for="password" :value="__('Mot de passe')" />
+      <x-forms.input-label for="password" :value="__('Mot de passe')" />
 
       <x-text-input id="password" class="mt-1 block w-full" type="password"
         name="password" required autocomplete="new-password" />
@@ -30,7 +30,7 @@
 
     <!-- Confirm Password -->
     <div class="mt-4">
-      <x-input-label for="password_confirmation" :value="__('Confirmez le mot de passe')" />
+      <x-forms.input-label for="password_confirmation" :value="__('Confirmez le mot de passe')" />
 
       <x-text-input id="password_confirmation" class="mt-1 block w-full"
         type="password" name="password_confirmation" required
