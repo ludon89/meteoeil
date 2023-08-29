@@ -47,22 +47,7 @@
 
         <div class="flex flex-row"> <!-- Temps & température -->
           <div class="pr-2">
-            <label for="weather">Temps :</label><br>
-            <select name="weather" id="weather">
-              <option value="{{ old('weather', $observation->weather) }}">
-                {{ old('weather', $observation->weather) }}
-              </option>
-              <option value="Ensoleillé">Ensoleillé</option>
-              <option value="Nuageux">Nuageux</option>
-              <option value="Couvert">Couvert</option>
-              <option value="Pluie faible">Pluie faible</option>
-              <option value="Pluie forte">Pluie forte</option>
-              <option value="Neige">Neige</option>
-              <option value="Pluie et neige mêlées">Pluie et neige mêlées
-              </option>
-              <option value="Orage">Orage</option>
-              <option value="Brouillard">Brouillard</option>
-            </select>
+            <x-forms.weather-select :observation="$observation" />
           </div>
           <div class="pr-2">
             <label for="temperature">Température :</label><br>
