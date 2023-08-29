@@ -38,7 +38,7 @@
         {{-- <div class="flex flex-row"> <!-- Date & heure -->
           <div class="mr-2">
             <label for="date">Date :</label><br>
-            <input type="date" name="date" id="date"
+            <input type="date" name="date" id="date" max="{{ date('Y-m-d') }}"
               value="{{ old('date', $observation->date) }}"
               class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
           </div>

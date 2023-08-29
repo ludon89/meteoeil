@@ -48,15 +48,16 @@ class ObservationController extends Controller
     public function store(Request $request)
     {
         $departementCodes = array_keys(config('departements'));
+        $weatherOptions = config('weather');
 
         $userInput = $request->validate([
             'title' => 'bail|required|string|max:128',
             'picture' => 'bail|required|mimes:jpg,jpeg,png|max:2048',
             'location' => 'bail|required|string|max:128',
-            'date' => 'bail|required|date',
+            'date' => 'bail|required|date|before_or_equal:today',
             'time' => 'bail|required|date_format:H:i',
             'departement' => ['bail', 'required', 'string', 'in:' . implode(',', $departementCodes)],
-            'weather' => 'bail|required|in:Ensoleillé,Nuageux,Couvert,Pluie faible,Pluie forte,Neige,Pluie et neige mêlées,Orage,Brouillard',
+            'weather' => ['bail', 'required', 'string', 'in:' . implode(',', $weatherOptions)],
             'temperature' => 'bail|nullable|integer|between:-40,50',
             'description' => 'bail|nullable|string|max:512',
         ]);
@@ -100,12 +101,13 @@ class ObservationController extends Controller
         $this->authorize('update', $observation);
 
         $departementCodes = array_keys(config('departements'));
+        $weatherOptions = config('weather');
 
         $validation = [
             'title' => 'bail|required|string|max:128',
             'location' => 'bail|required|string|max:128',
             'departement' => ['bail', 'required', 'string', 'in:' . implode(',', $departementCodes)],
-            'weather' => 'bail|required|in:Ensoleillé,Nuageux,Couvert,Pluie faible,Pluie forte,Neige,Pluie et neige mêlées,Orage,Brouillard',
+            'weather' => ['bail', 'required', 'string', 'in:' . implode(',', $weatherOptions)],
             'temperature' => 'bail|integer|between:-40,50',
             'description' => 'bail|string|max:512|nullable',
         ];
