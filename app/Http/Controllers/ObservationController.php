@@ -47,13 +47,15 @@ class ObservationController extends Controller
      */
     public function store(Request $request)
     {
+        $departementCodes = array_keys(config('departements'));
+
         $userInput = $request->validate([
             'title' => 'bail|required|string|max:128',
             'picture' => 'bail|required|mimes:jpg,jpeg,png|max:2048',
             'location' => 'bail|required|string|max:128',
             'date' => 'bail|required|date',
             'time' => 'bail|required|date_format:H:i',
-            'departement' => 'bail|required|string|max:2',
+            'departement' => ['bail', 'required', 'string', 'in:' . implode(',', $departementCodes)],
             'weather' => 'bail|required|in:Ensoleillé,Nuageux,Couvert,Pluie faible,Pluie forte,Neige,Pluie et neige mêlées,Orage,Brouillard',
             'temperature' => 'bail|nullable|integer|between:-40,50',
             'description' => 'bail|nullable|string|max:512',

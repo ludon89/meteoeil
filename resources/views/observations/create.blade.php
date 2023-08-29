@@ -11,29 +11,32 @@
         @csrf
         @method('POST')
 
-        <label for="title">Titre :</label><br>
-        <input type="text" name="title" id="title"
-          value="{{ old('title') }}"
-          class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+        <div class="mb-2 block">
+          <label for="title">Titre :</label><br>
+          <input type="text" name="title" id="title"
+            value="{{ old('title') }}"
+            class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+        </div>
 
-        <label for="location">Lieu :</label><br>
-        <input type="text" name="location" id="location"
-          value="{{ old('location') }}"
-          class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+        <div class="mb-2 block">
+          <label for="location">Lieu :</label><br>
+          <input type="text" name="location" id="location"
+            value="{{ old('location') }}"
+            class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+        </div>
 
-        <label for="departement">Département :</label><br>
-        <input type="text" name="departement" id="departement"
-          value="{{ old('departement') }}"
-          class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+        <div class="mb-2 inline-block">
+          <x-forms.departement-select />
+        </div>
 
-        <div class="flex flex-row"> <!-- Date & heure -->
-          <div class="pr-2">
+        <div class="mb-2 flex flex-row"> <!-- Date & heure -->
+          <div class="mr-2">
             <label for="date">Date :</label><br>
             <input type="date" name="date" id="date"
               value="{{ old('date') }}"
               class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
           </div>
-          <div class="pr-2">
+          <div class="mr-2">
             <label for="time">Heure :</label><br>
             <input type="time" name="time" id="time"
               value="{{ old('time') }}"
@@ -41,11 +44,11 @@
           </div>
         </div>
 
-        <div class="flex flex-row"> <!-- Météo & température -->
-          <div class="pr-2">
+        <div class="mb-2 flex flex-row"> <!-- Météo & température -->
+          <div class="mr-2">
             <x-forms.weather-select />
           </div>
-          <div class="pr-2">
+          <div class="mr-2">
             <label for="temperature">Température :</label><br>
             <input type="text" inputmode="numeric" pattern="[0-9]+"
               name="temperature" id="temperature"
@@ -54,13 +57,17 @@
           </div>
         </div>
 
-        <label for="description">Description :</label><br>
-        <textarea name="description" id="description" rows=6
-          value="{{ old('description') }}"
-          class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"></textarea>
+        <div class="mb-2 block">
+          <label for="description">Description :</label><br>
+          <textarea name="description" id="description" rows=6
+            value="{{ old('description') }}"
+            class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"></textarea>
+        </div>
 
-        <label for="picture">Image :</label><br>
-        <input type="file" name="picture" id="picture">
+        <div class="mb-2 block">
+          <label for="picture">Image :</label><br>
+          <input type="file" name="picture" id="picture">
+        </div>
 
         <x-forms.input-error :messages="$errors->all()" class="mt-2" /><br />
         <x-buttons.primary-button class="mt-4">
