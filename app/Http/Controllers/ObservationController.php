@@ -101,7 +101,7 @@ class ObservationController extends Controller
             'title' => 'bail|required|string|max:128',
             'location' => 'bail|required|string|max:128',
             'departement' => 'bail|required|string|max:3',
-            'weather' => 'bail|string|max:64',
+            'weather' => 'bail|required|in:Ensoleillé,Nuageux,Couvert,Pluie faible,Pluie forte,Neige,Pluie et neige mêlées,Orage,Brouillard',
             'temperature' => 'bail|integer|between:-40,50',
             'description' => 'bail|string|max:512|nullable',
         ];
