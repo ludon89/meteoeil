@@ -12,8 +12,7 @@
     @endforeach
   @else
     {{-- Création d'une nouvelle observation --}}
-    <option value="" disabled selected
-      {{ old('departement') ? '' : 'selected' }}>
+    <option value="" disabled {{ old('departement') ? '' : 'selected' }}>
       Veuillez sélectionner un département
     </option>
     @foreach (config('departements') as $code => $name)
