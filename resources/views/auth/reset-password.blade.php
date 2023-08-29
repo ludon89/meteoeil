@@ -8,7 +8,7 @@
     <!-- Email Address -->
     <div>
       <x-forms.input-label for="email" :value="__('Email')" />
-      <x-text-input id="email" class="mt-1 block w-full" type="email"
+      <x-forms.text-input id="email" class="mt-1 block w-full" type="email"
         name="email" :value="old('email', $request->email)" required autofocus
         autocomplete="username" />
       <x-input-error :messages="$errors->get('email')" class="mt-2" />
@@ -17,8 +17,8 @@
     <!-- Password -->
     <div class="mt-4">
       <x-forms.input-label for="password" :value="__('Password')" />
-      <x-text-input id="password" class="mt-1 block w-full" type="password"
-        name="password" required autocomplete="new-password" />
+      <x-forms.text-input id="password" class="mt-1 block w-full"
+        type="password" name="password" required autocomplete="new-password" />
       <x-input-error :messages="$errors->get('password')" class="mt-2" />
     </div>
 
@@ -26,7 +26,7 @@
     <div class="mt-4">
       <x-forms.input-label for="password_confirmation" :value="__('Confirm Password')" />
 
-      <x-text-input id="password_confirmation" class="mt-1 block w-full"
+      <x-forms.text-input id="password_confirmation" class="mt-1 block w-full"
         type="password" name="password_confirmation" required
         autocomplete="new-password" />
 

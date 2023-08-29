@@ -10,7 +10,7 @@
     <!-- Email Address -->
     <div>
       <x-forms.input-label for="email" :value="__('E-mail')" />
-      <x-text-input id="email" class="mt-1 block w-full" type="email"
+      <x-forms.text-input id="email" class="mt-1 block w-full" type="email"
         name="email" :value="old('email')" required autofocus />
       <x-input-error :messages="$errors->get('email')" class="mt-2" />
     </div>
