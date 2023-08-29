@@ -41,18 +41,47 @@
         <div class="flex flex-row"> <!-- Temps & température -->
           <div class="pr-2">
             <label for="weather">Météo :</label><br>
-            <select name="weather" id="weather" value="{{ old('weather') }}">
-              <option value="">Quel temps fait-il ?</option>
-              <option value="Ensoleillé">Ensoleillé</option>
-              <option value="Nuageux">Nuageux</option>
-              <option value="Couvert">Couvert</option>
-              <option value="Pluie faible">Pluie faible</option>
-              <option value="Pluie forte">Pluie forte</option>
-              <option value="Neige">Neige</option>
-              <option value="Pluie et neige mêlées">Pluie et neige mêlées
+            <select name="weather" id="weather">
+              <option value="" disabled
+                {{ old('weather') ? '' : 'selected' }}>
+                Quel temps fait-il ?
               </option>
-              <option value="Orage">Orage</option>
-              <option value="Brouillard">Brouillard</option>
+              <option value="Ensoleillé"
+                {{ old('weather') == 'Ensoleillé' ? 'selected' : '' }}>
+                Ensoleillé
+              </option>
+              <option value="Nuageux"
+                {{ old('weather') == 'Nuageux' ? 'selected' : '' }}>
+                Nuageux
+              </option>
+              <option value="Couvert"
+                {{ old('weather') == 'Couvert' ? 'selected' : '' }}>
+                Couvert
+              </option>
+              <option value="Pluie faible"
+                {{ old('weather') == 'Pluie faible' ? 'selected' : '' }}>
+                Pluie faible
+              </option>
+              <option value="Pluie forte"
+                {{ old('weather') == 'Pluie forte' ? 'selected' : '' }}>
+                Pluie forte
+              </option>
+              <option value="Neige"
+                {{ old('weather') == 'Neige' ? 'selected' : '' }}>
+                Neige
+              </option>
+              <option value="Pluie et neige mêlées"
+                {{ old('weather') == 'Pluie et neige mêlées' ? 'selected' : '' }}>
+                Pluie et neige mêlées
+              </option>
+              <option value="Orage"
+                {{ old('weather') == 'Orage' ? 'selected' : '' }}>
+                Orage
+              </option>
+              <option value="Brouillard"
+                {{ old('weather') == 'Brouillard' ? 'selected' : '' }}>
+                Brouillard
+              </option>
             </select>
           </div>
           <div class="pr-2">

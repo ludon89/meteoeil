@@ -20,7 +20,7 @@ return new class extends Migration
             $table->date('date');
             $table->time('time');
             $table->string('departement')->nullable();
-            $table->string('weather')->nullable();
+            $table->string('weather');
             $table->tinyInteger('temperature')->nullable();
             $table->text('description')->nullable();
             $table->foreignId('user_id')
