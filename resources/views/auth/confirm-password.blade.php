@@ -13,7 +13,7 @@
       <x-forms.text-input id="password" class="mt-1 block w-full" type="password"
         name="password" required autocomplete="current-password" />
 
-      <x-input-error :messages="$errors->get('password')" class="mt-2" />
+      <x-forms.input-error :messages="$errors->get('password')" class="mt-2" />
     </div>
 
     <div class="mt-4 flex justify-end">

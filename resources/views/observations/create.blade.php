@@ -71,7 +71,7 @@
         <label for="picture">Image :</label><br>
         <input type="file" name="picture" id="picture">
 
-        <x-input-error :messages="$errors->all()" class="mt-2" /><br />
+        <x-forms.input-error :messages="$errors->all()" class="mt-2" /><br />
         <x-primary-button class="mt-4">Publier
         </x-primary-button>
       </form>

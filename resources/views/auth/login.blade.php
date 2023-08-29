@@ -9,7 +9,7 @@
       <x-forms.text-input id="email" class="mt-1 block w-full" type="email"
         name="email" :value="old('email')" required autofocus
         autocomplete="username" />
-      <x-input-error :messages="$errors->get('email')" class="mt-2" />
+      <x-forms.input-error :messages="$errors->get('email')" class="mt-2" />
     </div>
 
     <!-- Password -->
@@ -20,7 +20,7 @@
         type="password" name="password" required
         autocomplete="current-password" />
 
-      <x-input-error :messages="$errors->get('password')" class="mt-2" />
+      <x-forms.input-error :messages="$errors->get('password')" class="mt-2" />
     </div>
 
     <!-- Remember Me -->

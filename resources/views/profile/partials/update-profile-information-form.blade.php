@@ -24,7 +24,7 @@
       <x-forms.text-input id="name" name="name" type="text"
         class="mt-1 block w-full" :value="old('name', $user->name)" required autofocus
         autocomplete="name" />
-      <x-input-error class="mt-2" :messages="$errors->get('name')" />
+      <x-forms.input-error class="mt-2" :messages="$errors->get('name')" />
     </div>
 
     <div>
@@ -32,7 +32,7 @@
       <x-forms.text-input id="email" name="email" type="email"
         class="mt-1 block w-full" :value="old('email', $user->email)" required
         autocomplete="username" />
-      <x-input-error class="mt-2" :messages="$errors->get('email')" />
+      <x-forms.input-error class="mt-2" :messages="$errors->get('email')" />
 
       @if (
           $user instanceof \Illuminate\Contracts\Auth\MustVerifyEmail &&
@@ -60,7 +60,7 @@
       <label for="avatar" class="block">Avatar :</label>
       <input type="file" id="avatar" name="avatar"
         class="block w-full text-sm text-gray-500 file:mr-4 file:rounded-md file:border-0 file:bg-blue-500 file:px-4 file:py-2 file:text-sm file:font-semibold file:text-white hover:file:bg-blue-600" />
-      <x-input-error class="mt-2" :messages="$errors->get('avatar')" />
+      <x-forms.input-error class="mt-2" :messages="$errors->get('avatar')" />
     </div>
 
 
