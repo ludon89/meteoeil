@@ -29,7 +29,7 @@
       </div>
       <div class="flex">
         <p class="max-w-[200px] truncate p-2">
-          <x-weather-icon :observation="$observation" />
+          <x-observations.weather-icon :observation="$observation" />
         </p>
         <p class="p-2">{{ $observation->temperature }} °C</p>
       </div>

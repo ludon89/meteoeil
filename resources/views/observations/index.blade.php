@@ -15,15 +15,15 @@
             src="{{ $observation->picture ? asset('storage/' . $observation->picture) : asset('images/placeholders/1200X800.png') }}"
             alt=""
             class="absolute left-0 top-0 h-full w-full rounded-md object-cover">
-          <x-obs-card-info class="left-0 top-0">
+          <x-observations.obs-card-info class="left-0 top-0">
             {{ $observation->location }}
-          </x-obs-card-info>
-          <x-obs-card-info class="bottom-0 left-0">
-            <x-weather-icon :observation="$observation" />
-          </x-obs-card-info>
-          <x-obs-card-info class="bottom-0 right-0">
+          </x-observations.obs-card-info>
+          <x-observations.obs-card-info class="bottom-0 left-0">
+            <x-observations.weather-icon :observation="$observation" />
+          </x-observations.obs-card-info>
+          <x-observations.obs-card-info class="bottom-0 right-0">
             {{ $observation->temperature }} °C
-          </x-obs-card-info>
+          </x-observations.obs-card-info>
         </div>
       </a>
     @endforeach
