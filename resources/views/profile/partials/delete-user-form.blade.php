@@ -9,8 +9,8 @@
     </p>
   </header>
 
-  <x-danger-button x-data=""
-    x-on:click.prevent="$dispatch('open-modal', 'confirm-user-deletion')">{{ __('Supprimer votre compte') }}</x-danger-button>
+  <x-buttons.danger-button x-data=""
+    x-on:click.prevent="$dispatch('open-modal', 'confirm-user-deletion')">{{ __('Supprimer votre compte') }}</x-buttons.danger-button>
 
   <x-modals.delete-user-modal name="confirm-user-deletion" :show="$errors->userDeletion->isNotEmpty()"
     focusable>
@@ -37,13 +37,13 @@
       </div>
 
       <div class="mt-6 flex justify-end">
-        <x-secondary-button x-on:click="$dispatch('close')">
+        <x-buttons.secondary-button x-on:click="$dispatch('close')">
           {{ __('Annuler') }}
-        </x-secondary-button>
+        </x-buttons.secondary-button>
 
-        <x-danger-button class="ml-3">
+        <x-buttons.danger-button class="ml-3">
           {{ __('Supprimer votre compte') }}
-        </x-danger-button>
+        </x-buttons.danger-button>
       </div>
     </form>
   </x-modals.delete-user-modal>

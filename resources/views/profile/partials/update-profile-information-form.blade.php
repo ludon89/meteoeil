@@ -65,7 +65,7 @@
 
 
     <div class="flex items-center gap-4">
-      <x-primary-button>Enregistrer</x-primary-button>
+      <x-buttons.primary-button>Enregistrer</x-buttons.primary-button>
 
       @if (session('status') === 'profile-updated')
         <p x-data="{ show: true }" x-show="show" x-transition

@@ -120,7 +120,8 @@
         <textarea name="content" rows="3"
           class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"></textarea>
         <x-forms.input-error :messages="$errors->all()" class="mt-2" /><br>
-        <x-primary-button class="mt-4">Publier</x-primary-button>
+        <x-buttons.primary-button
+          class="mt-4">Publier</x-buttons.primary-button>
       </form>
     </div>
     <hr>

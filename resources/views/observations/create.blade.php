@@ -72,8 +72,8 @@
         <input type="file" name="picture" id="picture">
 
         <x-forms.input-error :messages="$errors->all()" class="mt-2" /><br />
-        <x-primary-button class="mt-4">Publier
-        </x-primary-button>
+        <x-buttons.primary-button class="mt-4">Publier
+        </x-buttons.primary-button>
       </form>
       <a href="{{ url()->previous() }}">Retour</a>
     </div>

@@ -49,9 +49,9 @@
         @endif
       </div>
 
-      <x-primary-button class="ml-3">
+      <x-buttons.primary-button class="ml-3">
         Connexion
-      </x-primary-button>
+      </x-buttons.primary-button>
     </div>
   </form>
 </x-guest-layout>
