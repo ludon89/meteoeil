@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Comment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CommentController extends Controller
 {
@@ -16,10 +17,11 @@ class CommentController extends Controller
             'content' => 'bail|required|string|max:512',
         ]);
 
-        $userInput['user_id'] = auth()->id();
-        $userInput['observation_id'] = $request->observation;
+        $comment = new Comment($userInput);
+        $comment->user_id = Auth::id();
+        $comment->observation_id = $request->observation;
 
-        Comment::create($userInput);
+        $comment->save();
 
         return redirect(route('observations.show', $request->observation));
     }

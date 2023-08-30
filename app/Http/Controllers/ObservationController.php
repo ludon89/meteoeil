@@ -23,7 +23,7 @@ class ObservationController extends Controller
     }
 
     /**
-     * Affichage le dashboard utilisateur avec ses observations
+     * Affiche le dashboard utilisateur avec ses observations
      */
     public function indexDashboard()
     {
@@ -35,7 +35,7 @@ class ObservationController extends Controller
     }
 
     /**
-     * Affichage la page de création d'une observation
+     * Affiche la page de création d'une observation
      */
     public function create()
     {
@@ -101,7 +101,7 @@ class ObservationController extends Controller
     {
         $this->authorize('update', $observation);
 
-        dd(gettype($observation->time));
+        // dd(gettype($observation->time));
 
         $departementCodes = array_keys(config('departements'));
         $weatherOptions = config('weather');
