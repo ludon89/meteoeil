@@ -8,23 +8,7 @@ use Illuminate\Http\Request;
 class CommentController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
+     * Crée un nouveau commentaire dans la BDD
      */
     public function store(Request $request)
     {
@@ -41,15 +25,7 @@ class CommentController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     */
-    public function show(Comment $comment)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
+     * Affiche la page de modification d'un commentaire
      */
     public function edit(Comment $comment)
     {
@@ -61,7 +37,7 @@ class CommentController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Met à jour le commentaire dans la BDD
      */
     public function update(Request $request, Comment $comment)
     {
@@ -79,7 +55,7 @@ class CommentController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Supprime le commentaire de la BDD
      */
     public function destroy(Comment $comment)
     {

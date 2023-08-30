@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Gate;
 class AdminController extends Controller
 {
     /**
-     * Display the admin dashboard page with a listing of all the users.
+     * Affiche le dashboard admin avec un listing de tous les utilisateurs inscrits
      */
     public function adminDashboard()
     {
@@ -25,7 +25,7 @@ class AdminController extends Controller
     }
 
     /**
-     * Delete the specified user.
+     * Supprime l'utilisateur de la BDD
      */
     public function destroyUser(User $user)
     {

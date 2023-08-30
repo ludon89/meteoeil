@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Storage;
 class ObservationController extends Controller
 {
     /**
-     * Display a listing of the observation.
+     * Affiche toutes les observations
      */
     public function index()
     {
@@ -23,7 +23,7 @@ class ObservationController extends Controller
     }
 
     /**
-     * Display current user's dashboard with their observations.
+     * Affichage le dashboard utilisateur avec ses observations
      */
     public function indexDashboard()
     {
@@ -35,7 +35,7 @@ class ObservationController extends Controller
     }
 
     /**
-     * Show the form for creating a new observation.
+     * Affichage la page de création d'une observation
      */
     public function create()
     {
@@ -43,7 +43,7 @@ class ObservationController extends Controller
     }
 
     /**
-     * Store a newly created observation in storage.
+     * Crée une nouvelle observation dans la BDD
      */
     public function store(Request $request)
     {
@@ -71,7 +71,7 @@ class ObservationController extends Controller
     }
 
     /**
-     * Display the specified observation with its associated comments.
+     * Affiche une observation avec ses commentaires
      */
     public function show(Observation $observation)
     {
@@ -82,7 +82,7 @@ class ObservationController extends Controller
     }
 
     /**
-     * Show the form for editing the specified observation.
+     * Affiche la page de modification d'une observation
      */
     public function edit(Observation $observation)
     {
@@ -94,7 +94,7 @@ class ObservationController extends Controller
     }
 
     /**
-     * Update the specified observation in storage.
+     * Met à jour l'observation dans la BDD
      */
     public function update(Request $request, Observation $observation)
     {
@@ -127,7 +127,7 @@ class ObservationController extends Controller
     }
 
     /**
-     * Remove the specified observation from storage.
+     * Supprime l'observation de la BDD
      */
     public function destroy(Observation $observation)
     {
