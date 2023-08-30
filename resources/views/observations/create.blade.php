@@ -50,7 +50,7 @@
           </div>
           <div class="mr-2">
             <label for="temperature">Température :</label><br>
-            <input type="text" inputmode="numeric" pattern="[0-9]+"
+            <input type="text" inputmode="numeric" pattern="-?[0-9]+"
               name="temperature" id="temperature"
               value="{{ old('temperature') }}"
               class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">

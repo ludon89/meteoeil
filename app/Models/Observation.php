@@ -21,7 +21,6 @@ class Observation extends Model
         'picture',
         'title',
         'description',
-        'user_id',
     ];
 
     public function user(): BelongsTo

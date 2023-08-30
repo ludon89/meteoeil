@@ -63,9 +63,10 @@ class ObservationController extends Controller
         ]);
 
         $userInput['picture'] = $request->picture->store('user-obs', 'public');
-        $userInput['user_id'] = auth()->id();
 
-        Observation::create($userInput);
+        $observation = new Observation($userInput);
+        $observation->user_id = Auth::id();
+        $observation->save();
 
         return redirect(route('index'));
     }
@@ -99,6 +100,8 @@ class ObservationController extends Controller
     public function update(Request $request, Observation $observation)
     {
         $this->authorize('update', $observation);
+
+        dd(gettype($observation->time));
 
         $departementCodes = array_keys(config('departements'));
         $weatherOptions = config('weather');
