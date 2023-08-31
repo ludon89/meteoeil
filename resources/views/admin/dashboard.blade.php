@@ -58,8 +58,7 @@
                       @csrf
                       @method('DELETE')
                       <button type="submit"
-                        class="text-blue-500 hover:text-blue-700"
-                        href="{{ route('admin.users.destroy', $user) }}">Delete</button>
+                        class="text-blue-500 hover:text-blue-700">Delete</button>
                     </form>
                   </div>
                 </div>
