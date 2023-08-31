@@ -1,7 +1,7 @@
 @props(['observation'])
 
-<label for="weather">Météo :</label><br>
-<select name="weather" id="weather">
+<label for="weather">Météo :</label><x-required-fields /><br>
+<select name="weather" id="weather" required>
   @isset($observation)
     {{-- Modif d'une observation existante --}}
     @foreach (config('weather') as $item)

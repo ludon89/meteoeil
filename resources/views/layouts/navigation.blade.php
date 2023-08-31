@@ -6,8 +6,7 @@
       <!-- Logo & tagline -->
       <a class="inline-flex items-center gap-x-2 text-xl font-semibold dark:text-white"
         href="{{ route('index') }}">
-        <img src="{{ asset('images/logo-meteoeil-cropped-removebg.png') }}"
-          alt="Logo du site Météœil" class="h-20">
+        <x-application-logo class="h-20" />
         <div class="">
           <p class="text-xl text-sky-800">
             Météœil

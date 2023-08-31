@@ -18,15 +18,15 @@
         @method('PUT')
 
         <div class="mb-2 block">
-          <label for="title">Titre :</label><br>
-          <input type="text" name="title" id="title"
+          <label for="title">Titre :</label><x-required-fields /><br>
+          <input type="text" name="title" id="title" required
             value="{{ old('title', $observation->title) }}"
             class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
         </div>
 
         <div class="mb-2 block">
-          <label for="location">Lieu :</label><br>
-          <input type="text" name="location" id="location"
+          <label for="location">Lieu :</label><x-required-fields /><br>
+          <input type="text" name="location" id="location" required
             value="{{ old('location', $observation->location) }}"
             class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
         </div>
@@ -37,15 +37,15 @@
 
         <div class="flex flex-row"> <!-- Date & heure -->
           <div class="mr-2">
-            <label for="date">Date :</label><br>
-            <input type="date" name="date" id="date"
+            <label for="date">Date :</label><x-required-fields /><br>
+            <input type="date" name="date" id="date" required
               max="{{ date('Y-m-d') }}"
               value="{{ old('date', $observation->date) }}"
               class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
           </div>
           <div class="mr-2">
-            <label for="time">Heure :</label><br>
-            <input type="time" name="time" id="time"
+            <label for="time">Heure :</label><x-required-fields /><br>
+            <input type="time" name="time" id="time" required
               value="{{ old('time', $observation->time) }}"
               class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
           </div>
@@ -69,6 +69,12 @@
           <textarea name="description" id="description" rows=6
             value="{{ old('description', $observation->description) }}"
             class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">{{ old('description', $observation->description) }}</textarea>
+        </div>
+
+        <div>
+          <p class="text-xs text-red-600">
+            Les champs marqués d'un * sont obligatoires
+          </p>
         </div>
 
         <x-forms.input-error :messages="$errors->all()" class="mt-2" /><br />

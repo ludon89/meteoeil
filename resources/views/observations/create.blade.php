@@ -12,16 +12,16 @@
         @method('POST')
 
         <div class="mb-2 block">
-          <label for="title">Titre :</label><br>
+          <label for="title">Titre :</label><x-required-fields /><br>
           <input type="text" name="title" id="title"
-            value="{{ old('title') }}"
+            value="{{ old('title') }}" required
             class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
         </div>
 
         <div class="mb-2 block">
-          <label for="location">Lieu :</label><br>
+          <label for="location">Lieu :</label><x-required-fields /><br>
           <input type="text" name="location" id="location"
-            value="{{ old('location') }}"
+            value="{{ old('location') }}" required
             class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
         </div>
 
@@ -31,14 +31,14 @@
 
         <div class="mb-2 flex flex-row"> <!-- Date & heure -->
           <div class="mr-2">
-            <label for="date">Date :</label><br>
-            <input type="date" name="date" id="date"
+            <label for="date">Date :</label><x-required-fields /><br>
+            <input type="date" name="date" id="date" required
               max="{{ date('Y-m-d') }}" value="{{ old('date') }}"
               class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
           </div>
           <div class="mr-2">
-            <label for="time">Heure :</label><br>
-            <input type="time" name="time" id="time"
+            <label for="time">Heure :</label><x-required-fields /><br>
+            <input type="time" name="time" id="time" required
               value="{{ old('time') }}"
               class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
           </div>
@@ -65,8 +65,14 @@
         </div>
 
         <div class="mb-2 block">
-          <label for="picture">Image :</label><br>
-          <input type="file" name="picture" id="picture">
+          <label for="picture">Image :</label><x-required-fields /><br>
+          <input type="file" name="picture" id="picture" required>
+        </div>
+
+        <div>
+          <p class="text-xs text-red-600">
+            Les champs marqués d'un * sont obligatoires
+          </p>
         </div>
 
         <x-forms.input-error :messages="$errors->all()" class="mt-2" /><br />
