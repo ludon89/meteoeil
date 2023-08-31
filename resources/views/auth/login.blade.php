@@ -1,5 +1,9 @@
 <x-guest-layout>
 
+  <x-slot name="pageTitle">
+    Météœil | Connexion
+  </x-slot>
+
   <form method="POST" action="{{ route('login') }}">
     @csrf
 

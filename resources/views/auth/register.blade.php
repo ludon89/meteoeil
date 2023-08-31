@@ -1,4 +1,9 @@
 <x-guest-layout>
+
+  <x-slot name="pageTitle">
+    Météœil | Inscription
+  </x-slot>
+
   <form method="POST" action="{{ route('register') }}">
     @csrf
 

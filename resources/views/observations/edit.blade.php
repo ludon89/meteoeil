@@ -1,5 +1,9 @@
 <x-app-layout>
 
+  <x-slot name="pageTitle">
+    Météœil | Modifier l'observation n° {{ $observation->id }}
+  </x-slot>
+
   <div class="mx-auto max-w-5xl px-4 py-6 sm:px-6 lg:px-8">
     <h2 class="text-center text-xl font-semibold leading-tight text-gray-800">
       Modifier une observation

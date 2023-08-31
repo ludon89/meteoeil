@@ -1,5 +1,9 @@
 <x-app-layout>
 
+  <x-slot name="pageTitle">
+    Météœil | Détails de l'observation n° {{ $observation->id }}
+  </x-slot>
+
   <section>
     <div>
       <h1 class="text-center text-2xl font-bold text-sky-800">
