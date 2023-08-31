@@ -15,6 +15,9 @@
     @foreach ($observations as $observation)
       <article>
         <a href="{{ route('observations.show', $observation) }}">
+          <h2 class="sr-only">
+            Observation n° {{ $observation->id }}
+          </h2>
           <div class="aspect-h-3 aspect-w-4 relative">
             <img
               src="{{ $observation->picture ? asset('storage/' . $observation->picture) : asset('images/placeholders/1200X800.png') }}"

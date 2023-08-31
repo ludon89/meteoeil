@@ -82,6 +82,7 @@
       <div class="pb-2">
         @foreach ($observation->comments as $comment)
           <article class="pb-6">
+            <h2 class="sr-only">Commentaire n° {{ $comment->id }}</h2>
             <p class="pb-2">{{ $comment->content }}</p>
             <p class="pb-2 text-sm">Par {{ $comment->user->name }} le
               {{ $comment->created_at }}</p>

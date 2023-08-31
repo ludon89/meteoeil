@@ -49,6 +49,7 @@
       <!-- Footer -->
       <footer class="mt-auto">
         @include('layouts.footer')
+      </footer>
     </div>
   </body>
 
