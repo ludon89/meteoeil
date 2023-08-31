@@ -29,4 +29,20 @@ class ImageValidationTest extends TestCase
         // Vérif de la présence d'erreurs de validation
         $response->assertSessionHasErrors('picture');
     }
+
+    public function test_non_image_file_types_are_rejected()
+    {
+        $user = User::factory()->create();
+        $this->actingAs($user);
+
+        // Création d'un faux fichier PDF
+        $file = UploadedFile::fake()->create('document.pdf', 500, 'application/pdf');
+
+        $response = $this->post(route('observations.store'), [
+            'picture' => $file
+        ]);
+
+        // Vérif de la présence d'erreurs de validation
+        $response->assertSessionHasErrors('picture');
+    }
 }
