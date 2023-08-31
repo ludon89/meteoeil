@@ -29,7 +29,7 @@
       </div>
       <!-- Dropdown -->
       <div class="hs-dropdown relative inline-flex">
-        <button id="menu-button" aria-haspopup="true" aria-expanded="false"
+        <button id="menu-button" aria-haspopup="true"
           aria-label="Menu déroulant" type="button"
           class="hs-dropdown-toggle inline-flex h-10 w-10 items-center justify-center gap-2 rounded-md border bg-white p-3 align-middle text-sm font-medium text-gray-700 shadow-sm transition-all hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 focus:ring-offset-white dark:border-gray-700 dark:bg-slate-900 dark:text-gray-400 dark:hover:bg-slate-800 dark:hover:text-white dark:focus:ring-offset-gray-800">
           <svg class="h-4 w-4 text-gray-600" xmlns="http://www.w3.org/2000/svg"
@@ -45,12 +45,19 @@
           @auth
             <a href="{{ route('profile.edit') }}" role="menuitem">
               <div
-                class="-m-2 rounded-t-lg bg-gray-100 px-5 py-3 dark:bg-gray-700">
-                <p class="text-sm text-gray-500 dark:text-gray-400">Connecté en
-                  tant
-                  que</p>
-                <p class="text-sm font-medium text-gray-800 dark:text-gray-300">
-                  {{ Auth::user()->name }}</p>
+                class="-m-2 flex flex-row justify-start rounded-t-lg bg-gray-100 px-5 py-3 dark:bg-gray-700">
+                <div>
+                  <img src="{{ asset('images/placeholders/avatar.svg') }}"
+                    alt="Votre photo de profil" class="h-12">
+                </div>
+                <div class="pl-2">
+                  <p class="text-sm font-medium text-gray-800 dark:text-gray-300">
+                    {{ Auth::user()->name }}
+                  </p>
+                  <p class="text-sm text-gray-500 dark:text-gray-400">
+                    Profil
+                  </p>
+                </div>
               </div>
             </a>
           @endauth
@@ -84,7 +91,6 @@
                 </a>
               </form>
             @endauth
-
             @guest
               <a class="flex items-center gap-x-3.5 rounded-md px-3 py-2 text-sm text-gray-800 hover:bg-gray-100 focus:ring-2 focus:ring-blue-500 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300"
                 href="{{ route('login') }}" role="menuitem">
