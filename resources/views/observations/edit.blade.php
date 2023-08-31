@@ -35,10 +35,11 @@
           <x-forms.departement-select :observation="$observation" />
         </div>
 
-        {{-- <div class="flex flex-row"> <!-- Date & heure -->
+        <div class="flex flex-row"> <!-- Date & heure -->
           <div class="mr-2">
             <label for="date">Date :</label><br>
-            <input type="date" name="date" id="date" max="{{ date('Y-m-d') }}"
+            <input type="date" name="date" id="date"
+              max="{{ date('Y-m-d') }}"
               value="{{ old('date', $observation->date) }}"
               class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
           </div>
@@ -48,7 +49,7 @@
               value="{{ old('time', $observation->time) }}"
               class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
           </div>
-        </div> --}}
+        </div>
 
         <div class="flex flex-row"> <!-- Temps & température -->
           <div class="mr-2">

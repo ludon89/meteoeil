@@ -101,14 +101,14 @@ class ObservationController extends Controller
     {
         $this->authorize('update', $observation);
 
-        // dd(gettype($observation->time));
-
         $departementCodes = array_keys(config('departements'));
         $weatherOptions = config('weather');
 
         $validation = [
             'title' => 'bail|required|string|max:128',
             'location' => 'bail|required|string|max:128',
+            'date' => 'bail|required|date|before_or_equal:today',
+            'time' => 'bail|required',
             'departement' => ['bail', 'required', 'string', 'in:' . implode(',', $departementCodes)],
             'weather' => ['bail', 'required', 'string', 'in:' . implode(',', $weatherOptions)],
             'temperature' => 'bail|integer|between:-40,50',
@@ -120,6 +120,8 @@ class ObservationController extends Controller
         $observation->update([
             'title' => $request->title,
             'location' => $request->location,
+            'date' => $request->date,
+            'time' => $request->time,
             'departement' => $request->departement,
             'weather' => $request->weather,
             'temperature' => $request->temperature,
