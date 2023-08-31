@@ -111,8 +111,8 @@ class ObservationController extends Controller
             'time' => 'bail|required',
             'departement' => ['bail', 'required', 'string', 'in:' . implode(',', $departementCodes)],
             'weather' => ['bail', 'required', 'string', 'in:' . implode(',', $weatherOptions)],
-            'temperature' => 'bail|integer|between:-40,50',
-            'description' => 'bail|string|max:512|nullable',
+            'temperature' => 'bail|nullable|integer|between:-40,50',
+            'description' => 'bail|nullable|string|max:512|nullable',
         ];
 
         $this->validate($request, $validation);

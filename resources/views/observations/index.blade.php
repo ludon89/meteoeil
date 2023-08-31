@@ -29,9 +29,11 @@
             <x-observations.obs-card-info class="bottom-0 left-0">
               <x-observations.weather-icon :observation="$observation" />
             </x-observations.obs-card-info>
-            <x-observations.obs-card-info class="bottom-0 right-0">
-              {{ $observation->temperature }} °C
-            </x-observations.obs-card-info>
+            @isset($observation->temperature)
+              <x-observations.obs-card-info class="bottom-0 right-0">
+                {{ $observation->temperature }} °C
+              </x-observations.obs-card-info>
+            @endisset
           </div>
         </a>
       </article>

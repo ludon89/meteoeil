@@ -36,7 +36,9 @@
           <p class="max-w-[200px] truncate p-2">
             <x-observations.weather-icon :observation="$observation" />
           </p>
-          <p class="p-2">{{ $observation->temperature }} °C</p>
+          @isset($observation->temperature)
+            <p class="p-2">{{ $observation->temperature }} °C</p>
+          @endisset
         </div>
       </div>
       <p class="pb-6">
