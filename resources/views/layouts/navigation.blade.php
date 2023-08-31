@@ -7,23 +7,28 @@
       <a class="inline-flex items-center gap-x-2 text-xl font-semibold dark:text-white"
         href="{{ route('index') }}">
         <x-application-logo class="h-20" />
-        <div class="">
+        <div>
           <p class="text-xl text-sky-800">
             Météœil
           </p>
-          <p class="text-sm font-light italic text-sky-800">Votre regard sur la
-            météo</p>
+          <p class="text-sm font-light italic text-sky-800">
+            Votre regard sur la météo
+          </p>
         </div>
       </a>
       <!-- Nav links (hidden < sm) -->
-      <div id="navbar-image-and-text-1"
+      <div id="navbar-image-and-text-1" role="menu"
         class="hs-collapse hidden grow basis-full overflow-hidden transition-all duration-300 sm:block">
         <div
           class="mt-5 flex flex-col gap-5 sm:mt-0 sm:flex-row sm:items-center sm:justify-end sm:px-5">
           <a class="font-medium text-gray-600 hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-500"
-            href="{{ route('index') }}">Accueil</a>
+            href="{{ route('index') }}" role="menuitem">
+            Accueil
+          </a>
           <a class="font-medium text-gray-600 hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-500"
-            href="{{ route('observations.create') }}">Poster une observation</a>
+            href="{{ route('observations.create') }}" role="menuitem">
+            Poster une observation
+          </a>
         </div>
       </div>
       <!-- Dropdown -->

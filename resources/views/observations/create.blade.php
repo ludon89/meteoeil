@@ -64,7 +64,7 @@
         <div class="mb-2 block">
           <label for="description">Description :</label><br>
           <textarea name="description" id="description" rows=6
-            value="{{ old('description') }}"
+            placeholder="{{ old('description') }}"
             class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"></textarea>
         </div>
 

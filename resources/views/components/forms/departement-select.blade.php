@@ -1,7 +1,7 @@
 @props(['observation'])
 
 <label for="departement">Département :</label><x-required-fields /><br>
-<select name="departement" id="departement" required>
+<select name="departement" id="departement">
   @isset($observation)
     {{-- Modif d'une observation existante --}}
     @foreach (config('departements') as $code => $name)
