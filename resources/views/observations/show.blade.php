@@ -18,7 +18,8 @@
         href="{{ $observation->picture ? asset('storage/' . $observation->picture) : '#' }}">
         <img
           src="{{ $observation->picture ? asset('storage/' . $observation->picture) : asset('images/placeholders/1200X800.png') }}"
-          alt="" class="mx-auto max-h-screen rounded-md">
+          alt="Observation n° {{ $observation->id }}"
+          class="mx-auto max-h-screen rounded-md">
       </a>
     </div>
     <div class="mb-6 max-w-6xl rounded-md bg-black/70 p-4 text-white">
@@ -53,6 +54,7 @@
               class="mx-2 inline-flex items-center justify-center gap-2 rounded-md border border-transparent bg-sky-800 px-3 py-2 text-sm font-semibold text-white transition-all hover:bg-sky-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800">
               <span class="hidden sm:inline">Modifier</span>
               <i class="bi bi-pencil-square text-2xl sm:hidden"></i>
+              <span class="sr-only sm:hidden">Modifier</span>
             </a>
           @endcan
           @can('delete', $observation)
@@ -65,6 +67,7 @@
                 onclick="event.preventDefault(); this.closest('form').submit();">
                 <span class="hidden sm:inline">Supprimer</span>
                 <i class="bi bi-x-square-fill text-2xl sm:hidden"></i>
+                <span class="sr-only sm:hidden">Supprimer</span>
               </a>
             </form>
           @endcan
@@ -93,6 +96,7 @@
                   class="mx-2 inline-flex items-center justify-center gap-2 rounded-md border border-transparent bg-sky-800 px-3 py-2 text-sm font-semibold text-white transition-all hover:bg-sky-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800">
                   <span class="hidden sm:inline">Modifier</span>
                   <i class="bi bi-pencil-square text-lg sm:hidden"></i>
+                  <span class="sr-only sm:hidden">Modifier</span>
                 </a>
               @endcan
               @can('delete', $comment)
@@ -105,6 +109,7 @@
                     onclick="event.preventDefault(); this.closest('form').submit();">
                     <span class="hidden sm:inline">Supprimer</span>
                     <i class="bi bi-x-square-fill text-lg sm:hidden"></i>
+                    <span class="sr-only sm:hidden">Supprimer</span>
                   </a>
                 </form>
               @endcan
@@ -112,7 +117,7 @@
           </article>
         @endforeach
       </div>
-      </sec>
+    </section>
   @endif
 
   @if (Auth::check())

@@ -21,7 +21,7 @@
           <div class="aspect-h-3 aspect-w-4 relative">
             <img
               src="{{ $observation->picture ? asset('storage/' . $observation->picture) : asset('images/placeholders/1200X800.png') }}"
-              alt=""
+              alt="Observation n° {{ $observation->id }}"
               class="absolute left-0 top-0 h-full w-full rounded-md object-cover">
             <x-observations.obs-card-info class="left-0 top-0">
               {{ $observation->location }}
