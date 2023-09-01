@@ -57,7 +57,7 @@ class ObservationController extends Controller
             'date' => 'bail|required|date|before_or_equal:today',
             'time' => 'bail|required|date_format:H:i',
             'departement' => ['bail', 'required', 'string', 'in:' . implode(',', $departementCodes)],
-            'weather' => ['bail', 'required', 'string', 'in:' . implode(',', $weatherOptions)],
+            'weather' => ['bail', 'string', 'in:' . implode(',', $weatherOptions)],
             'temperature' => 'bail|nullable|integer|between:-40,50',
             'description' => 'bail|nullable|string|max:512',
         ]);
@@ -110,7 +110,7 @@ class ObservationController extends Controller
             'date' => 'bail|required|date|before_or_equal:today',
             'time' => 'bail|required',
             'departement' => ['bail', 'required', 'string', 'in:' . implode(',', $departementCodes)],
-            'weather' => ['bail', 'required', 'string', 'in:' . implode(',', $weatherOptions)],
+            'weather' => ['bail', 'string', 'in:' . implode(',', $weatherOptions)],
             'temperature' => 'bail|nullable|integer|between:-40,50',
             'description' => 'bail|nullable|string|max:512',
         ];

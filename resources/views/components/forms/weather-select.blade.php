@@ -1,9 +1,12 @@
 @props(['observation'])
 
-<label for="weather">Météo :</label><x-required-fields /><br>
+<label for="weather">Météo :</label>
 <select name="weather" id="weather">
   @isset($observation)
     {{-- Modif d'une observation existante --}}
+    <option value="" disabled {{ old('weather') ? '' : 'selected' }}>
+      Quel temps fait-il ?
+    </option>
     @foreach (config('weather') as $item)
       <option value="{{ $item }}"
         {{ old('weather', $observation->weather) == $item ? 'selected' : '' }}>

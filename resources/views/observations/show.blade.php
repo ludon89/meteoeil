@@ -33,9 +33,11 @@
           </p>
         </div>
         <div class="flex">
-          <p class="max-w-[200px] truncate p-2">
-            <x-observations.weather-icon :observation="$observation" />
-          </p>
+          @isset($observation->weather)
+            <p class="max-w-[200px] truncate p-2">
+              <x-observations.weather-icon :observation="$observation" />
+            </p>
+          @endisset
           @isset($observation->temperature)
             <p class="p-2">{{ $observation->temperature }} °C</p>
           @endisset
