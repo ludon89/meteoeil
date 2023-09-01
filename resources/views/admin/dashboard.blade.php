@@ -57,8 +57,16 @@
                       method="POST">
                       @csrf
                       @method('DELETE')
-                      <button type="submit"
-                        class="text-blue-500 hover:text-blue-700">Delete</button>
+                      @if (Auth::user()->id == $user->id)
+                        <button type="submit" class="text-gray-500" disabled>
+                          Delete
+                        </button>
+                      @else
+                        <button type="submit"
+                          class="text-blue-500 hover:text-blue-700">
+                          Delete
+                        </button>
+                      @endif
                     </form>
                   </div>
                 </div>
