@@ -1,6 +1,6 @@
 @props(['observation'])
 
-<label for="weather">Météo :</label>
+<label for="weather">Météo :</label><br>
 <select name="weather" id="weather">
   @isset($observation)
     {{-- Modif d'une observation existante --}}
