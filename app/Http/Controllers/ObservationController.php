@@ -59,7 +59,7 @@ class ObservationController extends Controller
             'departement' => ['bail', 'required', 'string', 'in:' . implode(',', $departementCodes)],
             'weather' => ['bail', 'string', 'in:' . implode(',', $weatherOptions)],
             'temperature' => 'bail|nullable|integer|between:-40,50',
-            'description' => 'bail|nullable|string|max:512',
+            'description' => 'bail|nullable|string|max:255',
         ]);
 
         $userInput['picture'] = $request->picture->store('user-obs', 'public');
@@ -112,7 +112,7 @@ class ObservationController extends Controller
             'departement' => ['bail', 'required', 'string', 'in:' . implode(',', $departementCodes)],
             'weather' => ['bail', 'string', 'in:' . implode(',', $weatherOptions)],
             'temperature' => 'bail|nullable|integer|between:-40,50',
-            'description' => 'bail|nullable|string|max:512',
+            'description' => 'bail|nullable|string|max:255',
         ];
 
         $this->validate($request, $validation);
