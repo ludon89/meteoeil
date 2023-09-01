@@ -28,9 +28,6 @@
           <p class="py-2 text-lg">
             {{ $observation->location }} ({{ $observation->departement }})
           </p>
-          <p>
-            {{ $observation->datetime }}
-          </p>
         </div>
         <div class="flex">
           @isset($observation->weather)
