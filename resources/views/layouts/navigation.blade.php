@@ -18,7 +18,7 @@
       </a>
       <!-- Nav links (hidden < sm) -->
       <div id="navbar-image-and-text-1" role="menu"
-        class="hs-collapse hidden grow basis-full overflow-hidden transition-all duration-300 sm:block">
+        class="hs-collapse hidden grow overflow-hidden transition-all duration-300 sm:block">
         <div
           class="mt-5 flex flex-col gap-5 sm:mt-0 sm:flex-row sm:items-center sm:justify-end sm:px-5">
           <a class="font-medium text-gray-600 hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-500"
