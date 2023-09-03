@@ -31,12 +31,12 @@
         </div>
         <div class="flex">
           @isset($observation->weather)
-            <p class="max-w-[200px] truncate p-2">
+            <p class="max-w-[200px] p-2">
               <x-observations.weather-icon :observation="$observation" />
             </p>
           @endisset
           @isset($observation->temperature)
-            <p class="p-2">{{ $observation->temperature }} °C</p>
+            <p class="p-2">{{ $observation->temperature }}&nbsp;°C</p>
           @endisset
         </div>
       </div>
@@ -52,7 +52,7 @@
         <div class="flex pb-4">
           @can('update', $observation)
             <a href="{{ route('observations.edit', $observation) }}"
-              class="mx-2 inline-flex items-center justify-center gap-2 rounded-md border border-transparent bg-sky-800 px-3 py-2 text-sm font-semibold text-white transition-all hover:bg-sky-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800">
+              class="mx-2 inline-flex h-12 items-center justify-center gap-2 rounded-md border border-transparent bg-sky-800 px-3 py-2 text-sm font-semibold text-white transition-all hover:bg-sky-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800">
               <span class="hidden sm:inline">Modifier</span>
               <i class="bi bi-pencil-square text-2xl sm:hidden"></i>
               <span class="sr-only sm:hidden">Modifier</span>
@@ -63,13 +63,12 @@
               action="{{ route('observations.destroy', $observation) }}">
               @csrf
               @method('DELETE')
-              <a href="{{ route('observations.destroy', $observation) }}"
-                class="mx-2 inline-flex items-center justify-center gap-2 rounded-md border border-transparent bg-red-700 px-3 py-2 text-sm font-semibold text-white transition-all hover:bg-red-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800"
-                onclick="event.preventDefault(); this.closest('form').submit();">
+              <button
+                class="mx-2 inline-flex h-12 items-center justify-center gap-2 rounded-md border border-transparent bg-red-700 px-3 py-2 text-sm font-semibold text-white transition-all hover:bg-red-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800">
                 <span class="hidden sm:inline">Supprimer</span>
                 <i class="bi bi-x-square-fill text-2xl sm:hidden"></i>
                 <span class="sr-only sm:hidden">Supprimer</span>
-              </a>
+              </button>
             </form>
           @endcan
         </div>
@@ -94,7 +93,7 @@
             <div class="flex">
               @can('update', $comment)
                 <a href="{{ route('comments.edit', $comment) }}"
-                  class="mx-2 inline-flex items-center justify-center gap-2 rounded-md border border-transparent bg-sky-800 px-3 py-2 text-sm font-semibold text-white transition-all hover:bg-sky-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800">
+                  class="mx-2 inline-flex h-12 items-center justify-center gap-2 rounded-md border border-transparent bg-sky-800 px-3 py-2 text-sm font-semibold text-white transition-all hover:bg-sky-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800">
                   <span class="hidden sm:inline">Modifier</span>
                   <i class="bi bi-pencil-square text-lg sm:hidden"></i>
                   <span class="sr-only sm:hidden">Modifier</span>
@@ -105,13 +104,12 @@
                   action="{{ route('comments.destroy', $comment) }}">
                   @csrf
                   @method('DELETE')
-                  <a href="{{ route('comments.destroy', $comment) }}"
-                    class="mx-2 inline-flex items-center justify-center gap-2 rounded-md border border-transparent bg-red-700 px-3 py-2 text-sm font-semibold text-white transition-all hover:bg-red-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800"
-                    onclick="event.preventDefault(); this.closest('form').submit();">
+                  <button
+                    class="mx-2 inline-flex h-12 items-center justify-center gap-2 rounded-md border border-transparent bg-red-700 px-3 py-2 text-sm font-semibold text-white transition-all hover:bg-red-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800">
                     <span class="hidden sm:inline">Supprimer</span>
                     <i class="bi bi-x-square-fill text-lg sm:hidden"></i>
                     <span class="sr-only sm:hidden">Supprimer</span>
-                  </a>
+                  </button>
                 </form>
               @endcan
             </div>

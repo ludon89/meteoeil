@@ -87,12 +87,11 @@
               @endif
               <form method="POST" action="{{ route('logout') }}">
                 @csrf
-                <a class="flex items-center gap-x-3.5 rounded-md px-3 py-2 text-sm text-gray-800 hover:bg-gray-100 focus:ring-2 focus:ring-blue-500 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300"
-                  href="{{ route('logout') }}" role="menuitem"
-                  onclick="event.preventDefault();
-                             this.closest('form').submit();">
+                <button type="submit"
+                  class="flex items-center gap-x-3.5 rounded-md px-3 py-2 text-sm text-gray-800 hover:bg-gray-100 focus:ring-2 focus:ring-blue-500 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300"
+                  role="menuitem">
                   Déconnexion
-                </a>
+                </button>
               </form>
             @endauth
             @guest
