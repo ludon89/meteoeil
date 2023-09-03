@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\User;
+use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
@@ -15,8 +16,10 @@ class AdminSeeder extends Seeder
     {
         User::factory(1)->create([
             'name' => 'Admin',
-            'password' => '$2y$10$pcU61bF83kHYrxEZ6sGUnO4GWUx7I57ttkMkHPTZ/xRO2wRsHZXTq',
             'email' => 'ad@min.com',
+            'email_verified_at' => now(),
+            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+            'remember_token' => Str::random(10),
             'avatar' => null,
             'is_admin' => true,
         ]);
